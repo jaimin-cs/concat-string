@@ -1,0 +1,256 @@
+.about1{
+  box-shadow: 
+    0 14px 54px rgba(231, 33, 37, 0.3), 
+    0 14px 54px rgba(84, 163, 218, 0.25);
+}
+
+/* vision slider */
+
+.vision-slider .slick-list{
+overflow: initial !important;
+padding: 0;
+}
+
+/* Default slick slide behavior */
+.vision-slider .slick-slide {
+transform: scale(0.85);
+opacity: 0.5;
+transition: transform 0.4s ease, opacity 0.3s ease;
+z-index: 1;
+}
+
+/* Highlight the center slide */
+.vision-slider .slick-center {
+transform: scale(1);
+opacity: 1;
+margin: 0 auto;
+z-index: 3;
+}
+
+/* Border wrapper (slide-wrap) with gradient */
+.vision-slider .slide-wrap {
+padding: 5px;
+border-radius: 10px;
+background: transparent;
+transition: background 0.3s ease;
+}
+
+/* Apply gradient border to the center */
+.vision-slider .slick-center {
+background: linear-gradient(180deg, #da2124 0%, #8e1d1d 100%);
+border-radius: 10px;
+}
+
+/* Inner slide box */
+.vision-slider .slide {
+border-radius: 8px;
+overflow: hidden;
+width: 100%;
+display: flex;
+}
+
+/* Slide content (title + arrow) */
+.slide-content {
+position: absolute;
+z-index: 2;
+bottom: 24px;
+left: 24px;
+right: 24px;
+opacity: 0;
+transform: translateY(10px);
+transition: all 0.3s ease;
+pointer-events: none;
+}
+
+/* Show content only on center slide */
+.vision-slider .slick-center .slide-content {
+opacity: 1;
+transform: translateY(0);
+pointer-events: auto;
+}
+
+.slick-dots li button:before {
+background: #d9d9d9;
+height: 12px !important;
+width: 12px !important ;
+content: "" !important;
+border-radius: 100%;
+opacity: 1 !important ;
+}
+
+.slick-dots li.slick-active button:before {
+background: linear-gradient(
+  115.51deg,
+  #e72125 32.11%,
+  #8e1d1d 116.15%
+) !important;
+height: 12px;
+width: 12px;
+content: "";
+border-radius: 100;
+opacity: 1;
+}
+
+.vision-slider .slick-dots {
+text-align: center;
+display: flex !important;
+justify-content: center;
+align-items: center;
+gap: 20px;
+}
+
+.vision-slider .slick-dots li {
+padding: 0;
+margin: 0;
+height: 0;
+width: 0;
+}
+
+.vision-slider .slick-dots li button {
+padding: 0;
+}
+
+.vision-slider .slick-track {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.vector-path path {
+stroke-dasharray: 3000;
+/* overwritten dynamically */
+stroke-dashoffset: 3000;
+transition: stroke-dashoffset 0.1s ease-out;
+}
+
+.vector-path path {
+fill: none;
+stroke: #54a3da;
+stroke-width: 3;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+display: none;
+}
+
+.scrollbar-hide {
+-ms-overflow-style: none;
+/* IE and Edge */
+scrollbar-width: none;
+/* Firefox */
+}
+button#scrollUp {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+overflow: hidden; /* Prevent ::before overflow */
+z-index: 1;
+}
+button#scrollUp:hover {
+border: none;
+}
+button#scrollUp:hover::before {
+content: "";
+position: absolute;
+inset: 0;
+border-radius: 9999px;
+padding: 2px; /* Ring thickness */
+background: linear-gradient(0deg, #e72125 0%, #54a3da 100%);
+background-clip: padding-box, border-box;
+-webkit-background-clip: padding-box, border-box;
+background-origin: border-box;
+box-sizing: border-box;
+mask: radial-gradient(
+  farthest-side,
+  transparent calc(100% - 2px),
+  white 100%
+);
+-webkit-mask: radial-gradient(
+  farthest-side,
+  transparent calc(100% - 2px),
+  white 100%
+);
+z-index: -1;
+pointer-events: none;
+}
+button#scrollDown {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+overflow: hidden; /* Prevent ::before overflow */
+z-index: 1;
+}
+button#scrollDown:hover {
+border: none;
+}
+button#scrollDown:hover::before {
+content: "";
+position: absolute;
+inset: 0;
+border-radius: 9999px;
+padding: 2px; /* Ring thickness */
+background: linear-gradient(180deg, #e72125 0%, #54a3da 100%);
+background-clip: padding-box, border-box;
+-webkit-background-clip: padding-box, border-box;
+background-origin: border-box;
+box-sizing: border-box;
+mask: radial-gradient(
+  farthest-side,
+  transparent calc(100% - 2px),
+  white 100%
+);
+-webkit-mask: radial-gradient(
+  farthest-side,
+  transparent calc(100% - 2px),
+  white 100%
+);
+z-index: -1;
+pointer-events: none;
+}
+
+.arrow-path {
+fill: white;
+transition: fill 0.3s ease;
+}
+
+button#scrollDown:hover .arrow-path {
+fill: url(#arrowGradient);
+}
+
+button#scrollUp:hover .arrow-path {
+fill: url(#arrowGradient);
+}
+
+.tab-buttons {
+max-width: 894px;
+width: 100%;
+}
+
+/* Vector path */
+
+.vector-path {
+position: absolute;
+}
+
+@media (min-width:1280px) and (max-width: 1340px) {
+.vector-path {
+  top: 14% !important;
+}
+}
+
+
+@media (min-width:1105px) and (max-width: 1280px) {
+.vector-path {
+  top: 0%;
+}
+}
+
+@media (max-width: 1105px) {
+.vector-path {
+  top: 10%;
+}
+}

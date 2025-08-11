@@ -1,0 +1,213 @@
+.banner .title {
+    transform: translateX(40%);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.banner.active .title {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.banner .description {
+    transform: translateX(60%);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    transition-delay: 0.25s;
+}
+
+.banner.active .description {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.banner .button {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    transition-delay: 0.25s;
+}
+
+.banner.active .button {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.animate-1 {
+    animation: zoom-blur 2s linear infinite;
+}
+
+.animate-3 {
+    animation: zoom-blur 2s linear infinite;
+    animation-delay: 1s;
+}
+
+.animate-2 {
+    animation: blur 2s linear infinite;
+}
+
+@keyframes zoom-blur {
+    0% {
+        transform: scale(1);
+        filter: blur(0);
+    }
+
+    20% {
+        transform: scale(1);
+        filter: blur(0);
+    }
+
+    40% {
+        transform: scale(0.75);
+        filter: blur(2px);
+    }
+
+    60% {
+        transform: scale(0.75);
+        filter: blur(2px);
+    }
+
+    80% {
+        transform: scale(1);
+        filter: blur(0);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes blur {
+    0% {
+        filter: blur(2px);
+    }
+
+    20% {
+        filter: blur(2px);
+    }
+
+    40% {
+        filter: blur(0px);
+    }
+
+    60% {
+        filter: blur(0px);
+    }
+
+    80% {
+        filter: blur(2px);
+    }
+
+    100% {
+        filter: blur(2px);
+    }
+}
+
+.trusted-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease-in-out;
+    background-image: radial-gradient(60.46% 50% at 50% 50%, #F23E41 0%, #000000 100%);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+    z-index: -1;
+}
+
+.trusted-section.active::before {
+    opacity: 1;
+}
+
+.trusted-section:not(.active) .icon-box img {
+    top: 50% !important;
+    left: 50% !important;
+    right: 50% !important;
+    bottom: 50% !important;
+    transform: scale(5) translate(-50%, -50%);
+    opacity: 1;
+}
+
+.trusted-section.active .icon-box img {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.trusted-section .icon-box img {
+    transition: all 2s ease-in-out;
+}
+
+
+.trusted-section.active h2 {
+    opacity: 1;
+}
+
+.trusted-section h2 {
+    transition: all 1s ease-in-out;
+    opacity: 0;
+}
+
+
+/* we provide section */
+
+.border-gradient {
+    background-image: linear-gradient(180deg, #E72125 0%, #54A3DA 100%);
+}
+
+.scroll-content {
+
+    overflow-y: scroll;
+    /* Keep scrolling enabled */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+}
+
+.scroll-content::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, and Edge */
+}
+
+.gradient-heading {
+    /* background: linear-gradient(180deg, #E72125 0%, #8E1D1D 153.5%); */
+    background: linear-gradient(180deg, #E72125 6.63%, #8E1D1D 81.58%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* faq */
+.faq-wrapper.is-active {
+  padding: 1px;
+  background: linear-gradient(180deg, #54A3DA 0%, #E72125 100%);
+  border: none;
+  border-radius: 12px;
+}
+
+/* FAQ Gradient Border */
+.faq-gradient-border {
+  border-radius: 12px;
+  padding: 1.5px; /* Border thickness */
+  background: linear-gradient(180deg, #54A3DA 0%, #E72125 100%);
+  /* Ensures the border is visible around the inner content */
+}
+.faq-gradient-border > .faq-item {
+  background: #1a1a1a; /* Or your card background color */
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+}
+.faq-item {
+  background: #000; /* or your section bg */
+  border-radius: 12px;
+  /* Remove border here */
+}
+.faq-item.active {
+  background: #2B2B2B;
+}

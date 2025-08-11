@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-Bold.woff2") format("woff2"),
+    url("/fonts/Denton-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-ExtraBold.woff2") format("woff2"),
+    url("/fonts/Denton-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-BoldItalic.woff2") format("woff2"),
+    url("/fonts/Denton-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-BlackItalic.woff2") format("woff2"),
+    url("/fonts/Denton-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-LightItalic.woff2") format("woff2"),
+    url("/fonts/Denton-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-Black.woff2") format("woff2"),
+    url("/fonts/Denton-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-Medium.woff2") format("woff2"),
+    url("/fonts/Denton-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-ExtraBoldItalic.woff2") format("woff2"),
+    url("/fonts/Denton-ExtraBoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-Light.woff2") format("woff2"),
+    url("/fonts/Denton-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-ThinItalic.woff2") format("woff2"),
+    url("/fonts/Denton-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-RegularItalic.woff2") format("woff2"),
+    url("/fonts/Denton-RegularItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-MediumItalic.woff2") format("woff2"),
+    url("/fonts/Denton-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-Thin.woff2") format("woff2"),
+    url("/fonts/Denton-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Denton Test";
+  src: url("/fonts/Denton-Regular.woff2") format("woff2"),
+    url("/fonts/Denton-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.faq-item.gradient-border {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border: none;
+}
+.faq-item.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px; /* border thickness changed from 2px to 1px */
+  background: linear-gradient(180deg, #54a3da 0%, #e72125 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+.vision {
+  position: relative;
+  z-index: 99;
+}
+.service-listing::before {
+  position: absolute;
+  content: "";
+  background: radial-gradient(
+    49.53% 84.06% at 50% 15.94%,
+    #e72125 0%,
+    rgba(231, 33, 37, 0) 100%
+  );
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 914px;
+  width: 100%;
+  z-index: -1;
+}
+
+@media (max-width: 992px) {
+  .service-listing::before {
+    height: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-listing::before {
+    height: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .service-listing::before {
+    height: 500px;
+  }
+}
+.why-img {
+  position: relative;
+}
+
+.why-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 568px;
+  height: 422px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(231, 33, 37, 0.7) 0%,
+    rgba(231, 33, 37, 0.1) 70%,
+    transparent 100%
+  );
+  filter: blur(30px);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: -99px;
+}
+/* Project detail tools */
+
+.left-col > div:first-child {
+  margin-left: 60px; 
+}
+
+.left-col > div:last-child {
+  margin-left: 60px; 
+}
+
+.right-col > div:first-child {
+  margin-left: -43px; 
+}
+
+.right-col > div:last-child {
+  margin-left: -43px; 
+}
+
+
+@media(max-width:992px){
+  .left-col > div:first-child {
+    margin-left: 0; 
+  }
+  
+  .left-col > div:last-child {
+    margin-left: 0; 
+  }
+  
+  .right-col > div:first-child {
+    margin-left: 0; 
+  }
+  
+  .right-col > div:last-child {
+    margin-left: 0; 
+  }
+  .why-img::before{
+    width: 100%;
+  }
+}
