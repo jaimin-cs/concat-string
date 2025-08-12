@@ -182,8 +182,8 @@ export default function Header() {
   return (
     <header className="header fixed top-0 left-0 w-full z-[999999]">
       <nav className="bg-[#00182D]">
-        <div className="max-w-[1632px] flex flex-wrap items-center justify-between mx-auto p-4 py-[22px]">
-          <a href="index.html" className="flex items-center space-x-3 rtl:space-x-reverse 2xl:w-[286px] xl:w-[286px] lg:w-[286px] md:w-[250px] sm:w-[200px] w-[200px]">
+        <div className="max-w-[1432px] flex flex-wrap items-center justify-between mx-auto p-4 py-[22px]">
+          <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse 2xl:w-[286px] xl:w-[286px] lg:w-[286px] md:w-[250px] sm:w-[200px] w-[200px]">
             <svg width="286" height="70" viewBox="0 0 286 70" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clipPath="url(#clip0_423_2149)">
                 <path
