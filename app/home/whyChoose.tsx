@@ -31,10 +31,11 @@ const WhyChoose = () => {
           <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-[30px] xl:gap-[30px] lg:gap-[25px] md:gap-[25px] sm:gap-[20px] gap-[20px] w-full justify-center items-center min-h-[225px]">
             {whyChooseData.companyStatistic?.map(
               (stat: any, idx: number) =>
-                stat.statisticLabel && stat.statisticNumber && (
+                stat.statisticLabel &&
+                stat.statisticNumber && (
                   <div
                     key={idx}
-                    className="box px-[30px] py-[30px] rounded-[10px] bg-[#B9B9B9]/30 border border-white flex flex-col items-start justify-center gap-[10px] shadow-custom transition-transform duration-300 ease-in-out hover:scale-y-[1.1] hover:bg-[linear-gradient(115.51deg,_#E72125_32.11%,_#8E1D1D_116.15%)] group h-[178px]"
+                    className="cursor-pointer box px-[30px] py-[30px] rounded-[10px] bg-[#B9B9B9]/30 border border-white flex flex-col items-start justify-center gap-[10px] shadow-custom transition-transform duration-300 ease-in-out hover:scale-y-[1.1] hover:bg-[linear-gradient(115.51deg,_#E72125_32.11%,_#8E1D1D_116.15%)] group h-[178px]"
                   >
                     <h3 className="text-black h3 group-hover:text-white">
                       {stat.statisticNumber}

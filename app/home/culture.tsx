@@ -49,7 +49,7 @@ const Culture = () => {
           {csianData.perks?.map((perk: any, idx: number) => (
             <div
               key={idx}
-              className={`border border-borderclr rounded-[14px] border-opacity-[50%] p-[30px] 
+              className={`border border-borderclr rounded-[14px] border-opacity-[50%] p-[30px] cursor-pointer 
                 ${cardClassNames[idx] || "w-full"} 
                 relative 2xl:h-[276px] xl:h-[260px] lg:h-[250px] md:h-[230px] sm:h-[200px] h-[200px] group overflow-hidden transition-all duration-500 ease-in-out hover:bg-white hover:bg-opacity-[16%] hover:border-white hover:border-opacity-[16%]`}
             >

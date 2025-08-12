@@ -33,12 +33,12 @@ const WhoWeAre = () => {
   const img4 = whoWeAreImage4?.node?.sourceUrl;
   const img5 = whoWeAreImage5?.node?.sourceUrl;
   const img6 = whoWeAreImage6?.node?.sourceUrl;
-  const alt1 = whoWeAreImage1?.node?.altText || "img1";
-  const alt2 = whoWeAreImage2?.node?.altText || "img2";
-  const alt3 = whoWeAreImage3?.node?.altText || "img3";
-  const alt4 = whoWeAreImage4?.node?.altText || "img4";
-  const alt5 = whoWeAreImage5?.node?.altText || "img5";
-  const alt6 = whoWeAreImage6?.node?.altText || "img6";
+  const alt1 = whoWeAreImage1?.node?.altText;
+  const alt2 = whoWeAreImage2?.node?.altText;
+  const alt3 = whoWeAreImage3?.node?.altText;
+  const alt4 = whoWeAreImage4?.node?.altText;
+  const alt5 = whoWeAreImage5?.node?.altText;
+  const alt6 = whoWeAreImage6?.node?.altText;
 
   return (
     <section className="who-we-are 2xl:pt-[220px] xl:pt-[200px] lg:pt-[200px] md:pt-[100px] sm:pt-[100px] pt-[100px] 2xl:pb-[220px] xl:pb-[220px] lg:pb-[200px] md:pb-[100px] sm:pb-[100px] pb-[100px]">
@@ -76,7 +76,10 @@ const WhoWeAre = () => {
             <h2 className="font-denton text-white font-semibold leading-[100%] 2xl:text-[86px] xl:text-[80px] lg:text-[70px] md:text-[60px] sm:text-[50px] text-[30px] mb-[16px] text-center">
               {whoWeAreTitle}
             </h2>
-            <div className="font-lato text-[18px] sm:text-[18px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[22px] leading-[25px] sm:leading-[25px] md:leading-[25px] lg:leading-[25px] xl:leading-[36px] 2xl:leading-[36px] text-[#C3C3C3] font-normal text-center 2xl:max-w-[1012px] xl:max-w-[780px] lg:max-w-[750px] md:max-w-[700px] flex flex-col gap-[36px] " dangerouslySetInnerHTML={{ __html: whoWeAreDescription }} />
+            <div
+              className="font-lato text-[18px] sm:text-[18px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[22px] leading-[25px] sm:leading-[25px] md:leading-[25px] lg:leading-[25px] xl:leading-[36px] 2xl:leading-[36px] text-[#C3C3C3] font-normal text-center 2xl:max-w-[1012px] xl:max-w-[780px] lg:max-w-[750px] md:max-w-[700px] flex flex-col gap-[36px] "
+              dangerouslySetInnerHTML={{ __html: whoWeAreDescription }}
+            />
             {contactUsButton && (
               <Link
                 href={contactUsButton.url}

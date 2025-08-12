@@ -22,8 +22,84 @@ const Faq = () => {
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  // Validation states
+  const [errors, setErrors] = useState({
+    fullName: "",
+    emailAddress: "",
+    message: "",
+  });
+  const [touched, setTouched] = useState({
+    fullName: false,
+    emailAddress: false,
+    message: false,
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Validation functions
+  const validateField = (name: string, value: string) => {
+    let message = "";
+
+    switch (name) {
+      case "fullName":
+        if (!value.trim()) {
+          message = "Full name is required";
+        } else if (value.trim().length < 2) {
+          message = "Full name must be at least 2 characters long";
+        }
+        break;
+      case "emailAddress":
+        if (!value.trim()) {
+          message = "Email address is required";
+        } else {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(value)) {
+            message = "Please enter a valid email address";
+          }
+        }
+        break;
+      case "message":
+        if (!value.trim()) {
+          message = "Message is required";
+        } else if (value.trim().length < 10) {
+          message = "Message must be at least 10 characters long";
+        }
+        break;
+      default:
+        break;
+    }
+
+    setErrors((prev) => ({ ...prev, [name]: message }));
+    return message === "";
+  };
+
+  const validateForm = () => {
+    const fullNameValid = validateField("fullName", form.fullName);
+    const emailValid = validateField("emailAddress", form.emailAddress);
+    const messageValid = validateField("message", form.message);
+
+    return fullNameValid && emailValid && messageValid;
+  };
+
+  const handleFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+
+    // Validate field if it's been touched
+    if (touched[name as keyof typeof touched]) {
+      validateField(name, value);
+    }
+  };
+
+  const handleFieldBlur = (name: string) => {
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    validateField(name, form[name as keyof typeof form]);
   };
 
   const handleRecaptchaChange = (token: string | null) => {
@@ -32,10 +108,22 @@ const Faq = () => {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    // Mark all fields as touched
+    setTouched({
+      fullName: true,
+      emailAddress: true,
+      message: true,
+    });
+
     // Check if reCAPTCHA is completed
     if (!recaptchaToken) {
       alert("Please complete the reCAPTCHA verification");
+      return;
+    }
+
+    // Validate form before submission
+    if (!validateForm()) {
       return;
     }
 
@@ -47,26 +135,26 @@ const Faq = () => {
         name: "Full Name",
         value: form.fullName,
         id: 10,
-        type: "text"
+        type: "text",
       },
       12: {
         name: "Email Address",
         value: form.emailAddress,
         id: 12,
-        type: "email"
+        type: "email",
       },
       13: {
         name: "Message",
         value: form.message,
         id: 13,
-        type: "textarea"
-      }
+        type: "textarea",
+      },
     };
 
     const payload = {
       form_id: 1147,
       fields,
-      recaptcha_token: recaptchaToken
+      recaptcha_token: recaptchaToken,
     };
 
     try {
@@ -75,15 +163,23 @@ const Faq = () => {
         payload,
         {
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
-          timeout: 10000 // 10 second timeout
+          timeout: 10000, // 10 second timeout
         }
       );
+
+      // Success - reset form and show success message
       setForm({ fullName: "", emailAddress: "", message: "" });
       setRecaptchaToken(null);
       recaptchaRef.current?.reset();
-      alert("Form submitted successfully!");
+      setIsSubmitted(true);
+      setTouched({ fullName: false, emailAddress: false, message: false });
+
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
     } catch (error: any) {
       console.error("Form submission error:", error);
       alert("Error submitting form. Please try again.");
@@ -178,7 +274,10 @@ const Faq = () => {
             <h3 className="font-denton font-bold 2xl:text-[40px] xl:text-[40px] lg:text-[30px] md:text-[30px] sm:text-[25px] text-[25px] text-white leading-[100%]">
               Ask a different question
             </h3>
-            <form onSubmit={handleFormSubmit} className="flex flex-col gap-[20px] w-full">
+            <form
+              onSubmit={handleFormSubmit}
+              className="flex flex-col gap-[20px] w-full"
+            >
               <div className="w-full">
                 <input
                   type="text"
@@ -186,31 +285,46 @@ const Faq = () => {
                   placeholder="Enter Full Name"
                   value={form.fullName}
                   onChange={handleFormChange}
-                  required
-                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-monte font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D94D] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
+                  onBlur={() => handleFieldBlur("fullName")}
+                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-lato font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D9] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
                 />
+                {touched.fullName && errors.fullName && (
+                  <p className="text-red-400 text-sm mt-2 font-medium">
+                    {errors.fullName}
+                  </p>
+                )}
               </div>
               <div className="w-full">
                 <input
-                  type="email"
+                  type="text"
                   name="emailAddress"
                   placeholder="Enter Email Address"
                   value={form.emailAddress}
                   onChange={handleFormChange}
-                  required
-                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-monte font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D94D] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
+                  onBlur={() => handleFieldBlur("emailAddress")}
+                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-lato font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D9] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
                 />
+                {touched.emailAddress && errors.emailAddress && (
+                  <p className="text-red-400 text-sm mt-2 font-medium">
+                    {errors.emailAddress}
+                  </p>
+                )}
               </div>
               <div className="w-full">
                 <textarea
                   name="message"
-                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-monte font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D94D] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
+                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-lato font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D9] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
                   placeholder="Write your message"
                   value={form.message}
                   onChange={handleFormChange}
-                  required
+                  onBlur={() => handleFieldBlur("message")}
                   rows={4}
                 />
+                {touched.message && errors.message && (
+                  <p className="text-red-400 text-sm mt-2 font-medium">
+                    {errors.message}
+                  </p>
+                )}
               </div>
               <div className="flex justify-between gap-[10px] 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col">
                 <div className="flex items-center">
@@ -231,6 +345,11 @@ const Faq = () => {
                 </button>
               </div>
             </form>
+            {/* {isSubmitted && (
+              <div className="mt-4 text-green-500 text-center">
+                Form submitted successfully!
+              </div>
+            )} */}
           </div>
         </div>
       </div>

@@ -8,18 +8,61 @@ import axios from "axios";
 const Footer = () => {
   const { data } = useQuery(GET_FOOTER_MENU);
   const footer = data?.page?.footerSettings;
-  
+
   // Newsletter subscription state
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
+
+  // Validation functions
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim()) {
+      return "Email address is required";
+    }
+    if (!emailRegex.test(email)) {
+      return "Please enter a valid email address";
+    }
+    return "";
+  };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    // Clear error when user starts typing
+    if (emailError) {
+      setEmailError("");
+    }
+
+    // Validate on blur if field has been touched
+    if (isTouched) {
+      const error = validateEmail(newEmail);
+      setEmailError(error);
+    }
+  };
+
+  const handleEmailBlur = () => {
+    setIsTouched(true);
+    const error = validateEmail(email);
+    setEmailError(error);
   };
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate email before submission
+    const error = validateEmail(email);
+    if (error) {
+      setEmailError(error);
+      setIsTouched(true);
+      return;
+    }
+
     setIsSubmitting(true);
+    setEmailError("");
 
     // Build the fields object as per WPForms API
     const fields = {
@@ -27,13 +70,13 @@ const Footer = () => {
         name: "Email Address",
         value: email,
         id: 1,
-        type: "email"
-      }
+        type: "email",
+      },
     };
 
     const payload = {
       form_id: 1217,
-      fields
+      fields,
     };
 
     try {
@@ -42,14 +85,24 @@ const Footer = () => {
         payload,
         {
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
-          timeout: 10000 // 10 second timeout
+          timeout: 10000, // 10 second timeout
         }
       );
+
+      // Success - reset form and show success message
       setEmail("");
+      setIsSubmitted(true);
+      setIsTouched(false);
+
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
     } catch (error: any) {
       console.error("Newsletter subscription error:", error);
+      setEmailError("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -64,24 +117,30 @@ const Footer = () => {
               <h3 className="font-denton font-semibold text-white 2xl:text-[46px] xl:text-[46px] lg:text-[40px] md:text-[40px] sm:text-[30px] text-[25px] leading-[100%] text-center">
                 {footer?.newsletterTitle}
               </h3>
-              <form onSubmit={handleNewsletterSubmit} className="w-full flex flex-col justify-center items-center gap-[20px]">
+              <form
+                onSubmit={handleNewsletterSubmit}
+                className="w-full flex flex-col justify-center items-center gap-[20px] max-w-[823px]"
+              >
                 <div className="subscribe 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full">
                   <div className="input flex items-center rounded-full py-[10px] h-full 2xl:w-[823px] xl:w-[823px] lg:w-[700px] leading-[34px] 2xl:px-6 xl:px-6 lg:px-6 md:px-6 sm:px-0 px-0 md:w-full sm:w-full w-full">
                     <input
-                      type="email"
+                      type="text"
                       placeholder="Enter your email address"
                       value={email}
                       onChange={handleEmailChange}
-                      required
+                      onBlur={handleEmailBlur}
                       className="flex-grow bg-transparent text-white font-lato font-semibold text-[16px] lg:text-[18px] leading-[36px] px-4 rounded-full focus:outline-none placeholder:text-white"
                     />
+
                     <button
                       className="group 2xl:flex xl:flex lg:flex md:flex sm:hidden hidden"
                       type="submit"
                       disabled={isSubmitting}
                     >
                       <div className="btn-primary-outline">
-                        <span className="btn-primary">{isSubmitting ? "Submitting..." : "Submit"}</span>
+                        <span className="btn-primary">
+                          {isSubmitting ? "Submitting..." : "Submit"}
+                        </span>
                       </div>
                     </button>
                   </div>
@@ -92,10 +151,24 @@ const Footer = () => {
                   disabled={isSubmitting}
                 >
                   <div className="btn-primary-outline 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full bg-gradient-to-b from-white to-[#54A3DA]">
-                    <span className="btn-primary">{isSubmitting ? "Submitting..." : "Submit"}</span>
+                    <span className="btn-primary">
+                      {isSubmitting ? "Submitting..." : "Submit"}
+                    </span>
                   </div>
                 </button>
+                {emailError && isTouched && (
+                  <span className="flex items-start justify-start w-full">
+                    <p className="text-[#ff0005] text-sm font-medium ms-[40px]">
+                      {emailError}
+                    </p>
+                  </span>
+                )}
               </form>
+              {/* {isSubmitted && (
+                <div className="text-green-500 text-center mt-4">
+                  Subscription successful!
+                </div>
+              )} */}
             </div>
             <ul className="flex flex-wrap justify-center items-center 2xl:gap-[46px] xl:gap-[46px] lg:gap-[40px] md:gap-[40px] sm:gap-[30px] gap-[20px] 2xl:pt-[80px] xl:pt-[60px] lg:pt-[50px] md:pt-[40px] sm:pt-[30px] pt-[30px] 2xl:pb-[60px] xl:pb-[60px] lg:pb-[50px] md:pb-[40px] sm:pb-[30px] pb-[30px] border-b border-[#D9D9D9]">
               {footer?.footerPaths?.map(
@@ -140,9 +213,12 @@ const Footer = () => {
               </ul>
             </div>
             <div className="grid 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 2xl:gap-[30px] xl:gap-[30px] lg:gap-[25px] md:gap-[20px] sm:gap-[20px] gap-[20px]">
-              <a href={`https://maps.app.goo.gl/2ENUbrW1qMk1FeBj8`}
-                    target="_blank"
-                    rel="noopener noreferrer" className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full group hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)]">
+              <a
+                href={`https://maps.app.goo.gl/2ENUbrW1qMk1FeBj8`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full group hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)]"
+              >
                 <div className="flex items-center bg-[#2B2B2B] rounded-[12px] h-full gap-[15px] w-full 2xl:py-[24px] xl:py-[24px] lg:py-[24px] md:py-[20px] sm:py-[20px] py-[20px] 2xl:px-[30px] xl:px-[30px] lg:px-[24px] md:px-[20px] sm:px-[20px] px-[20px]">
                   <span className="icon w-[50px] h-[50px]">
                     <svg
@@ -172,16 +248,15 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </span>
-                  <span
-                    
-                    className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] cursor-pointer group-hover:text-[#E72125]"
-                  >
+                  <span className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] cursor-pointer group-hover:text-[#E72125]">
                     {footer?.companyAddress}
-                    
                   </span>
                 </div>
               </a>
-              <a href={`tel:${footer?.companyNumber}`} className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full group hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)]">
+              <a
+                href={`tel:${footer?.companyNumber}`}
+                className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full group hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)]"
+              >
                 <div className="flex items-center bg-[#2B2B2B] rounded-[12px] h-full gap-[15px] w-full 2xl:py-[24px] xl:py-[24px] lg:py-[24px] md:py-[20px] sm:py-[20px] py-[20px] 2xl:px-[30px] xl:px-[30px] lg:px-[24px] md:px-[20px] sm:px-[20px] px-[20px]">
                   <span className="icon w-[50px] h-[50px]">
                     <svg
@@ -226,15 +301,15 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </span>
-                  <span
-                    
-                    className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] group-hover:text-[#E72125]"
-                  >
+                  <span className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] group-hover:text-[#E72125]">
                     {footer?.companyNumber}
                   </span>
                 </div>
               </a>
-              <a href={`mailto:${footer?.companyEmail}`} className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full group hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)]">
+              <a
+                href={`mailto:${footer?.companyEmail}`}
+                className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full group hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)]"
+              >
                 <div className="flex items-center bg-[#2B2B2B] rounded-[12px] h-full gap-[15px] w-full 2xl:py-[24px] xl:py-[24px] lg:py-[24px] md:py-[20px] sm:py-[20px] py-[20px] 2xl:px-[30px] xl:px-[30px] lg:px-[24px] md:px-[20px] sm:px-[20px] px-[20px]">
                   <span className="icon w-[50px] h-[50px]">
                     <svg
@@ -264,10 +339,7 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </span>
-                  <span
-                    
-                    className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] break-all group-hover:text-[#E72125]"
-                  >
+                  <span className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] break-all group-hover:text-[#E72125]">
                     {footer?.companyEmail}
                   </span>
                 </div>

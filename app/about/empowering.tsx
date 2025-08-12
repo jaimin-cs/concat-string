@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ABOUT_BANNER } from "@/lib/queries";
@@ -9,14 +9,13 @@ const Empowering = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error loading banner</div>;
 
-  const bannerData =
-    data?.page?.flexibleContent?.flexibleContent?.find(
-      (item: any) => item?.aboutBannerTitle
-    );
+  const bannerData = data?.page?.flexibleContent?.flexibleContent?.find(
+    (item: any) => item?.aboutBannerTitle
+  );
 
-  const title = bannerData?.aboutBannerTitle || "Empowering innovation, together";
-  const videoUrl = bannerData?.aboutBannerVideo?.node?.mediaItemUrl || "/video/about.mp4";
-  const videoType = bannerData?.aboutBannerVideo?.node?.mimeType || "video/mp4";
+  const title = bannerData?.aboutBannerTitle;
+  const videoUrl = bannerData?.aboutBannerVideo?.node?.mediaItemUrl;
+  const videoType = bannerData?.aboutBannerVideo?.node?.mimeType;
 
   return (
     <section className="min-h-full 2xl:px-[110px] xl:px-[100px] lg:px-[80px] md:px-[60px] sm:px-[40px] px-[20px]">

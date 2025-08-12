@@ -158,7 +158,7 @@ const TechTalks = () => {
           {/*
            */}
 
-          <a href={posts[0]?.blogDetail?.viewAllBlog.url} className="group">
+          <a href={posts[0]?.blogDetail?.viewAllBlog?.url} className="group">
             <div className="btn-primary-outline">
               <div className="btn-primary">
                 {posts[0]?.blogDetail?.viewAllBlog.title}
