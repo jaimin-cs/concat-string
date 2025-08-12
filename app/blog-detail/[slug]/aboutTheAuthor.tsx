@@ -42,7 +42,7 @@ const AboutTheAuthor: React.FC<Props> = ({ post }) => {
                   <div className="flex flex-col gap-[30px] items-start">
                     <a
                       href="author-detail.html"
-                      className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%]"
+                      className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] hover:opacity-80 transition-opacity"
                     >
                       {
                         post?.author?.node?.userProfileImage
@@ -67,6 +67,7 @@ const AboutTheAuthor: React.FC<Props> = ({ post }) => {
                               href={term?.socialLink?.url}
                               target="_blank"
                               rel="noopener noreferrer"
+                              className="text-white hover:text-red-500 transition-colors duration-300"
                             >
                               <img
                                 src={term?.socialSvg?.node?.sourceUrl}

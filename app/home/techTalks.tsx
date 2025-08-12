@@ -139,7 +139,7 @@ const TechTalks = () => {
                   </div>
                   <a
                     href={`/blog-detail/${post?.slug}`}
-                    className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%]"
+                    className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] hover:text-[#E72125]"
                   >
                     {blogIcons?.readMore}
                     {blogIcons?.readMoreIcon?.node?.sourceUrl && (

@@ -124,7 +124,7 @@ export default function Header() {
       <nav className="bg-[#00182D]">
         <div className="max-w-[1432px] px-4 mx-auto flex flex-wrap items-center justify-between mx-auto p-4 py-[22px]">
           <a
-            href="index.html"
+            href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse 2xl:w-[286px] xl:w-[286px] lg:w-[286px] md:w-[250px] sm:w-[200px] w-[200px]"
           >
             <svg
@@ -444,7 +444,7 @@ export default function Header() {
                           fill="#E72125"
                         />
                       </svg>
-                      <span className="font-denton font-normal 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[18px] sm:text-[18px] text-[18px] leading-[100%] text-white 2xl:block xl:block lg:block md:block sm:hidden hidden">
+                      <span className="font-denton font-normal 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[18px] sm:text-[18px] text-[18px] leading-[100%] text-white 2xl:block xl:block lg:block md:block sm:hidden hidden hover:text-[#E72125]">
                         {header?.closeButtonTitle || "Close"}
                       </span>
                     </button>
@@ -467,7 +467,7 @@ export default function Header() {
                   <div className="talk-link-wrapper opacity-0 translate-x-32 transition-all duration-700 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]">
                     <a
                       href={header?.letsTalkTitle?.url}
-                      className="font-denton font-normal 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[18px] sm:text-[18px] text-[18px] leading-[100%] text-white"
+                      className="font-denton font-normal 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[18px] sm:text-[18px] text-[18px] leading-[100%] text-white hover:text-[#E72125]"
                     >
                       {header?.letsTalkTitle?.title}
                     </a>

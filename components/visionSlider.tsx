@@ -83,6 +83,7 @@ const VisionSlider: React.FC<VisionSliderProps> = ({ padding }) => {
                       </h3>
                       <span className="arrow">
                         <img
+                          className="cursor-pointer"
                           src={slide.projectSettings.arrowSvg?.node?.sourceUrl}
                           width="44"
                           height="44"

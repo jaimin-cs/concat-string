@@ -278,7 +278,7 @@ const WorkImpact: React.FC<WorkImpactProps> = ({ showViewMore = true }) => {
                             "Project image"
                           }
                           className="h-[480px] relative rounded-[20px] transition-transform duration-500 ease-in-out 
-                                group-hover:scale-[1.03] group-hover:-translate-y-[6px] group-hover:-translate-x-[4px]"
+                                group-hover:scale-[1.03] group-hover:-translate-y-[6px] group-hover:-translate-x-[4px] object-cover"
                           width="900"
                           height="480"
                         />
@@ -286,10 +286,10 @@ const WorkImpact: React.FC<WorkImpactProps> = ({ showViewMore = true }) => {
                           <img
                             src={project?.techImage?.node?.sourceUrl}
                             alt={project?.techImage?.node?.altText || "Logo"}
-                            width="200"
-                            height="110"
-                            className="2xl:w-[200px] xl:w-[200px] lg:w-[150px] md:w-[150px] sm:w-[130px] w-[120px]
-                             h-[100px]"
+                            width="205"
+                            height="111"
+                            // className="2xl:w-[200px] xl:w-[200px] lg:w-[150px] md:w-[150px] sm:w-[130px] w-[120px]
+                            //  h-[100px]"
                           />
                         </div>
                         <div className="hover-logo absolute top-[40px] 2xl:left-[40px] xl:left-[40px] lg:left-[40px] md:left-[30px] sm:left-[20px] left-[20px] transition-opacity duration-500 ease-in-out opacity-0 group-hover:opacity-100 z-[9999]">
@@ -299,9 +299,9 @@ const WorkImpact: React.FC<WorkImpactProps> = ({ showViewMore = true }) => {
                               project?.techImageHover?.node?.altText ||
                               "Logo hover"
                             }
-                            width="284"
-                            height="154"
-                            className="2xl:w-[284px] xl:w-[284px] lg:w-[200px] md:w-[200px] sm:w-[150px] w-[100px]
+                            width="286"
+                            height="155"
+                            className="2xl:w-[286px] xl:w-[284px] lg:w-[200px] md:w-[200px] sm:w-[150px] w-[100px]
                           2xl:h-[154px] xl:h-[154px] lg:h-[150px] md:h-[150px] sm:h-[100px] h-[80px]"
                           />
                         </div>

@@ -41,6 +41,26 @@ background: linear-gradient(180deg, #da2124 0%, #8e1d1d 100%);
 border-radius: 10px;
 }
 
+.vision-slider .slick-center{
+  position: relative;
+}
+
+.slick-center::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Shadow height */
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 58%,  /* Fully transparent at top */
+    rgba(98, 98, 98, 0.5) 70%,  /* Light gray semi-transparent */
+    rgba(0, 0, 0, 0.8) 100%  
+  );
+}
+
 /* Inner slide box */
 .vision-slider .slide {
 border-radius: 8px;

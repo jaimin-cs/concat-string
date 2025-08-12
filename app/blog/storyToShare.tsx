@@ -216,7 +216,7 @@ const StoryToShare = () => {
       {isPopupOpen && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-[999999]">
           <div className="min-h-screen px-4 sm:px-6 md:px-10 flex justify-center items-center">
-            <div className="w-full max-w-[1400px] 2xl:pt-[80px] xl:pt-[80px] lg:pt-[60px] md:pt-[50px] sm:pt-[40px] pt-[20px] 2xl:pb-[100px] xl:pb-[100px] lg:pb-[6px] md:pb-[50px] sm:pb-[40px] pb-[20px] 2xl:px-[130px] xl:px-[130px] lg:px-[60px] md:px-[50px] sm:px-[40px] px-[20px] bg-[#292929] rounded-[20px] mx-auto max-h-[90vh] overflow-y-auto relative">
+            <div className="w-full max-w-[1400px] 2xl:pt-[80px] xl:pt-[80px] lg:pt-[60px] md:pt-[50px] sm:pt-[40px] pt-[20px] 2xl:pb-[100px] xl:pb-[100px] lg:pb-[6px] md:pb-[50px] sm:pb-[40px] pb-[20px] 2xl:px-[130px] xl:px-[130px] lg:px-[60px] md:px-[50px] sm:px-[40px] px-[20px] bg-[#292929] rounded-[20px] mx-auto max-h-[90vh] overflow-y-auto relative custom-scrollbar">
               <button 
                 onClick={closePopup}
                 className="absolute lg:top-[40px] lg:right-[40px] top-[20px] right-[5px] z-20 w-[43.84px] h-[43.84px] rounded-full flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity duration-300"

@@ -58,7 +58,7 @@ const Technology = () => {
         </div>
         <div className="flex flex-col 2xl:gap-[80px] xl:gap-[80px] lg:gap-[60px] md:gap-[50px] sm:gap-[30px] gap-[30px] items-center justify-center">
           {/* Tab Buttons */}
-          <div className="tech-tab-btn flex items-center justify-center gap-[18px] 2xl:flex-nowrap xl:flex-nowrap lg:flex-nowrap md:flex-wrap sm:flex-wrap flex-wrap">
+          <div className="tech-tab-btn flex items-center justify-center gap-[18px] flex-wrap">
             {techStack.map((stack: any) => (
               <button
                 key={stack.techStackName}

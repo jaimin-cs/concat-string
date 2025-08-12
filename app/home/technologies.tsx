@@ -67,13 +67,13 @@ const Technologies = () => {
 
         <div className="border-gradient rounded-[40px] p-[1px]">
           <div className="bg-black 2xl:py-[70px] xl:py-[70px] lg:py-[60px] md:py-[50px] sm:py-[40px] py-[30px] rounded-[40px] 2xl:px-[105px] xl:px-[100px] lg:px-[80px] md:px-[60px] sm:px-[50px] px-[30px]">
-            <div className="scroll-content h-[300px] overflow-hidden relative transition-all duration-500 ease-in-out">
+            <div className="scroll-content h-[300px] overflow-hidden relative transition-all duration-500 ease-in-out custom-scrollbar">
               {technologies.map((tech: any, i: number) => {
                 const settings = tech.technologiesSettings;
                 return (
                   <div
                     key={i}
-                    className="flex gap-[66px] justify-between items-center mb-12 2xl:flex-row xl:flex-row lg:flex-row md:flex-col sm:flex-col flex-col"
+                    className="flex gap-[66px] justify-between items-center mb-12 2xl:flex-row xl:flex-row lg:flex-row md:flex-col sm:flex-col flex-col me-[5px]"
                   >
                     <div className="2xl:w-[832px] xl:w-[832px] lg:w-[832px] md:w-full sm:w-full w-full">
                       <h3 className="h3 tracking-normal mb-4 text-white">

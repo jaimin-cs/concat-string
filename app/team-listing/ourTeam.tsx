@@ -27,11 +27,13 @@ const OurTeam = () => {
     >
       <div className="container max-w-[1440px] 2xl:px-[20px] xl:px-[20px] lg:px-[20px] md:px-[15px] sm:px-[12px] px-[10px] mx-auto">
         <div className="flex justify-between items-center">
-          <h1 className="h1 text-white leading-[100%]">
+          <h1 className="h1 text-white max-w-[662px] leading-[100%]">
             {titleWords.map((word: string, index: number) => (
               <React.Fragment key={index}>
                 {word}
-                {index < titleWords.length - 1 && " "}
+                {index < titleWords.length - 1 && (
+                  index === 1 ? <br /> : " " // line break after 3rd word
+                )}
               </React.Fragment>
             ))}
           </h1>

@@ -143,7 +143,7 @@ const ServiceHighlights = () => {
                           //   settings.ourServiceLink?.url || "/service-detail"
                           // }
                           href={`/services/${service?.slug}`}
-                          className="flex items-center gap-[16px] font-denton text-[18px] leading-[100%] font-bold text-white"
+                          className="flex items-center gap-[16px] font-denton text-[18px] leading-[100%] font-bold text-white hover:underline"
                         >
                           Read more
                           <img
@@ -278,7 +278,7 @@ const ServiceHighlights = () => {
                           // href={
                           //   settings.ourServiceLink?.url || "/service-detail"
                           // }
-                          className="flex items-center gap-[16px] font-denton text-[18px] leading-[100%] font-bold text-white"
+                          className="flex items-center gap-[16px] font-denton text-[18px] leading-[100%] font-bold text-white hover:underline"
                         >
                           Read more
                           <img

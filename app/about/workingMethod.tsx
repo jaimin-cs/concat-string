@@ -173,9 +173,9 @@ const WorkingMethod = () => {
           <div
             ref={scrollPanelRef}
             id="scroll-panel"
-            className="relative 2xl:w-[50%] xl:w-[50%] lg:w-[50%] md:w-full sm:w-full w-full max-h-[620px] overflow-y-auto scrollbar-hide"
+            className="relative 2xl:w-[50%] xl:w-[50%] lg:w-[50%] md:w-full sm:w-full w-full max-h-[620px] overflow-y-auto custom-scrollbar"
           >
-            <div className="flex flex-col gap-[10px]">
+            <div className="flex flex-col gap-[10px] me-[5px]">
               {workingCycle.map((step: any, idx: number) => (
                 <div
                   key={idx}

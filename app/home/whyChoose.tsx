@@ -34,7 +34,7 @@ const WhyChoose = () => {
                 stat.statisticLabel && stat.statisticNumber && (
                   <div
                     key={idx}
-                    className="box px-[30px] py-[30px] rounded-[10px] bg-[#D9D9D94D] border border-white flex flex-col items-start justify-center gap-[10px] shadow-custom transition-all duration-300 ease-in-out hover:py-[50px] hover:scale-[1.02] hover:bg-[linear-gradient(115.51deg,_#E72125_32.11%,_#8E1D1D_116.15%)] group h-[178px] hover:h-[218px]"
+                    className="box px-[30px] py-[30px] rounded-[10px] bg-[#B9B9B9]/30 border border-white flex flex-col items-start justify-center gap-[10px] shadow-custom transition-transform duration-300 ease-in-out hover:scale-y-[1.1] hover:bg-[linear-gradient(115.51deg,_#E72125_32.11%,_#8E1D1D_116.15%)] group h-[178px]"
                   >
                     <h3 className="text-black h3 group-hover:text-white">
                       {stat.statisticNumber}

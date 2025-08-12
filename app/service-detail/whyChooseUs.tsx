@@ -23,7 +23,7 @@ const WhyChooseUs = () => {
             {stats.map((stat: any, idx: number) => (
               <div
                 key={idx}
-                className="box px-[30px] py-[30px] rounded-[10px] bg-[#D9D9D94D] border border-white flex flex-col items-start justify-center [15px] gap-[10px] shadow-custom transition-all duration-300 ease-in-out hover:py-[50px] hover:scale-[1.02] hover:bg-[linear-gradient(115.51deg,_#E72125_32.11%,_#8E1D1D_116.15%)] group h-[178px] hover:h-[218px] hover:border-transparent"
+                className="box px-[30px] py-[30px] rounded-[10px] bg-[#D9D9D94D] border border-white flex flex-col items-start justify-center [15px] gap-[10px] shadow-custom transition-all duration-300 ease-in-out hover:py-[50px] hover:scale-y-[1.1] hover:bg-[linear-gradient(115.51deg,_#E72125_32.11%,_#8E1D1D_116.15%)] group h-[178px] hover:border-transparent"
               >
                 <h3 className="text-white h3 group-hover:text-white">{stat.statisticNumber}</h3>
                 <span className="font-denton text-[22px] font-medium leading-[100%] text-white group-hover:text-white">

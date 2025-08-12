@@ -69,6 +69,7 @@ const TechTalks = () => {
               backgroundPosition: "center",
             }}
           >
+            <div className="shadow"></div>
             <div className="absolute top-[30px] right-[30px]">
               <img
                 src={blogIcons?.newIcon?.node?.sourceUrl}
@@ -79,7 +80,7 @@ const TechTalks = () => {
               />
             </div>
             <div className="w-full">
-              <div className="flex flex-col gap-[23px]">
+              <div className="flex flex-col gap-[23px] relative z-10">
                 <div className="flex flex-col gap-[10px]">
                   <div className="flex justify-between items-center w-full flex-row flex-wrap gap-[10px]">
                     <div className="flex flex-row flex-wrap gap-[10px]">
@@ -144,7 +145,7 @@ const TechTalks = () => {
                 </div>
                 <a
                   href={`/blog-detail/${latestPost?.slug}`}
-                  className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%]"
+                  className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] hover:opacity-80 transition-opacity"
                 >
                   {blogIcons?.readMore}
                   {blogIcons?.readMoreIcon?.node?.sourceUrl && (

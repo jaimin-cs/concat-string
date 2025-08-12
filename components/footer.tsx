@@ -106,7 +106,7 @@ const Footer = () => {
                   <li key={idx}>
                     <a
                       href={item.pathLink.url}
-                      className="font-denton font-bold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text:[18px] leading-[32px] text-white"
+                      className="font-denton font-bold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text:[18px] leading-[32px] text-white hover:underline"
                     >
                       {item.pathLink.title}
                     </a>
@@ -129,7 +129,7 @@ const Footer = () => {
                   ) => (
                     <li key={idx} className="flex items-center gap-[10px]">
                       <span className="bg-[linear-gradient(312.85deg,_#2C3894_11.22%,_#54A3DA_86.03%)] h-[6px] w-[6px] rounded-full"></span>
-                      <p className="font-denton font-medium 2xl:text-[20px] xl:text-[20px] lg:text-[18px] md:text-[18px] sm:text-[18px] text:[18px] leading-[32px] text-white">
+                      <p className="font-denton font-medium 2xl:text-[20px] xl:text-[20px] lg:text-[18px] md:text-[18px] sm:text-[18px] text:[18px] leading-[32px] text-white hover:underline">
                         <a href={`/services/${service?.slug}`}>
                           {service.title}
                         </a>
@@ -140,7 +140,9 @@ const Footer = () => {
               </ul>
             </div>
             <div className="grid 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 2xl:gap-[30px] xl:gap-[30px] lg:gap-[25px] md:gap-[20px] sm:gap-[20px] gap-[20px]">
-              <div className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full">
+              <a href={`https://maps.app.goo.gl/2ENUbrW1qMk1FeBj8`}
+                    target="_blank"
+                    rel="noopener noreferrer" className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full group hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)]">
                 <div className="flex items-center bg-[#2B2B2B] rounded-[12px] h-full gap-[15px] w-full 2xl:py-[24px] xl:py-[24px] lg:py-[24px] md:py-[20px] sm:py-[20px] py-[20px] 2xl:px-[30px] xl:px-[30px] lg:px-[24px] md:px-[20px] sm:px-[20px] px-[20px]">
                   <span className="icon w-[50px] h-[50px]">
                     <svg
@@ -170,17 +172,16 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </span>
-                  <a
-                    href={`https://maps.app.goo.gl/2ENUbrW1qMk1FeBj8`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] cursor-pointer"
+                  <span
+                    
+                    className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] cursor-pointer group-hover:text-[#E72125]"
                   >
                     {footer?.companyAddress}
-                  </a>
+                    
+                  </span>
                 </div>
-              </div>
-              <div className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full">
+              </a>
+              <a href={`tel:${footer?.companyNumber}`} className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full group hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)]">
                 <div className="flex items-center bg-[#2B2B2B] rounded-[12px] h-full gap-[15px] w-full 2xl:py-[24px] xl:py-[24px] lg:py-[24px] md:py-[20px] sm:py-[20px] py-[20px] 2xl:px-[30px] xl:px-[30px] lg:px-[24px] md:px-[20px] sm:px-[20px] px-[20px]">
                   <span className="icon w-[50px] h-[50px]">
                     <svg
@@ -225,15 +226,15 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </span>
-                  <a
-                    href={`tel:${footer?.companyNumber}`}
-                    className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)]"
+                  <span
+                    
+                    className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] group-hover:text-[#E72125]"
                   >
                     {footer?.companyNumber}
-                  </a>
+                  </span>
                 </div>
-              </div>
-              <div className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full">
+              </a>
+              <a href={`mailto:${footer?.companyEmail}`} className="p-[1px] rounded-[12px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-full group hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)]">
                 <div className="flex items-center bg-[#2B2B2B] rounded-[12px] h-full gap-[15px] w-full 2xl:py-[24px] xl:py-[24px] lg:py-[24px] md:py-[20px] sm:py-[20px] py-[20px] 2xl:px-[30px] xl:px-[30px] lg:px-[24px] md:px-[20px] sm:px-[20px] px-[20px]">
                   <span className="icon w-[50px] h-[50px]">
                     <svg
@@ -263,14 +264,14 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </span>
-                  <a
-                    href={`mailto:${footer?.companyEmail}`}
-                    className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] break-all"
+                  <span
+                    
+                    className="font-lato text-white font-normal text-[16px] leading-[24px] max-w-[calc(100%-65px)] break-all group-hover:text-[#E72125]"
                   >
                     {footer?.companyEmail}
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
           <div className="border-t border-transparent copy-right">
@@ -286,7 +287,7 @@ const Footer = () => {
                   <li>
                     <a
                       href={footer?.termsLink?.url}
-                      className="font-lato font-normal text-[18px] leading-[32px] text-white"
+                      className="font-lato font-normal text-[18px] leading-[32px] text-white hover:underline"
                     >
                       {footer?.termsLink?.title}
                     </a>
@@ -299,7 +300,7 @@ const Footer = () => {
                   <li>
                     <a
                       href={footer?.privacyLink?.url}
-                      className="font-lato font-normal text-[18px] leading-[32px] text-white"
+                      className="font-lato font-normal text-[18px] leading-[32px] text-white hover:underline"
                     >
                       {footer?.privacyLink?.title}
                     </a>

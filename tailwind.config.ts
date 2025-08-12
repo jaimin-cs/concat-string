@@ -91,7 +91,7 @@ const config: Config = {
           '@apply p-[1px] rounded-[50px] bg-gradient-to-r from-[#E72125] to-[#8E1D1D] transition-all duration-300 leading-[100%]': {},
         },
         '.btn-primary': {
-          '@apply rounded-[50px] bg-[#232323] group-hover:bg-gradient-to-r group-hover:from-[#E72125] group-hover:to-[#8E1D1D] text-white group-hover:text-white px-[40px] 2xl:py-[20px] xl:py-[20px] lg:py-[20px] md:py-[15px] sm:py-[15px] py-[15px] flex justify-center items-center text-center font-denton font-bold text-[18px] transition-all duration-300': {},
+          '@apply rounded-[50px] bg-[#232323] group-hover:bg-gradient-to-r group-hover:from-[#E72125] group-hover:to-[#8E1D1D] text-white group-hover:text-white px-[40px] 2xl:py-[20px] xl:py-[20px] lg:py-[20px] md:py-[15px] sm:py-[15px] py-[15px] flex justify-center items-center text-center font-denton font-bold text-[18px] transition-all duration-300 leading-[24px]': {},
         },
       });
     }),

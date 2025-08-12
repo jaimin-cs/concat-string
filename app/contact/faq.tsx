@@ -147,7 +147,7 @@ const Faq = () => {
                 style={{ borderImageSlice: 1 }}
               >
                 <div className="faq-head flex justify-between items-center w-full">
-                  <h4 className="font-denton text-white font-semibold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text-[18px] 2xl:leading-[34px] xl:leading-[34px] lg:leading-[30px] md:leading-[30px] sm:leading-[25px] leading-[25px]">
+                  <h4 className="font-denton text-white font-semibold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text-[18px] 2xl:leading-[34px] xl:leading-[34px] lg:leading-[30px] md:leading-[30px] sm:leading-[25px] leading-[25px] cursor-pointer">
                     {faq.title}
                   </h4>
                   <span className="faq-icon cursor-pointer">

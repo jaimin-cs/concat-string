@@ -60,7 +60,7 @@ const MeetWriters = () => {
           {users?.map((user: any) => (
             <div
               key={user.id}
-              className="rounded-[10px] py-[36px] px-[24px] flex flex-col items-center justify-center 2xl:me-[30px] xl:me-[30px] lg:me-[30px] md:me-[20px] sm:me-[20px] me-0 team-box hover:bg-[#D9D9D933]"
+              className="rounded-[10px] py-[36px] px-[24px] flex flex-col items-center justify-center 2xl:me-[30px] xl:me-[30px] lg:me-[30px] md:me-[20px] sm:me-[20px] me-0 team-box hover:bg-[#D9D9D933] h-full"
             >
               <div className="flex flex-col gap-[18px] items-center justify-center gap-[24px] pb-[16px]">
                 <img
@@ -71,7 +71,7 @@ const MeetWriters = () => {
                   alt={user.name}
                   width="84"
                   height="84"
-                  className="rounded-full object-cover"
+                  className="rounded-full object-cover w-[84px] h-[84px] object-center"
                 />
                 <h4 className="font-denton font-bold text-[24px] text-white leading-[100%]">
                   {user.name}
@@ -86,7 +86,7 @@ const MeetWriters = () => {
                   localStorage.setItem("selectedUserId", user.id);
                   router.push("/author-details");
                 }}
-                className="flex items-center justify-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%]"
+                className="flex items-center justify-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] cursor-pointer"
               >
                 {writersList?.buttonLabel}
                 {writersList?.buttonIcon?.node?.sourceUrl && (

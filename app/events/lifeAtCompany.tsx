@@ -110,7 +110,7 @@ export default function LifeAtCompany() {
                           }}
                         />
                         <div className="flex items-center gap-[10px] cursor-pointer hover:opacity-80 transition-opacity">
-                          <span className="text-white 2xl:text-[18px] xl:text-[18px] lg:text-[16px] md:text-[15px] sm:text-[14px] text-[13px] font-bold 2xl:leading-[24px] xl:leading-[24px] lg:leading-[20px] md:leading-[19px] sm:leading-[18px] leading-[17px] font-denton">
+                          <span className="text-white 2xl:text-[18px] xl:text-[18px] lg:text-[16px] md:text-[15px] sm:text-[14px] text-[13px] font-bold 2xl:leading-[24px] xl:leading-[24px] lg:leading-[20px] md:leading-[19px] sm:leading-[18px] leading-[17px] font-denton hover:opacity-80 transition-opacity">
                             {event.eventSettings?.eventViewMoreLink?.title}
                           </span>
                           <svg
