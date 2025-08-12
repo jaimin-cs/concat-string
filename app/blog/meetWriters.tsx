@@ -83,7 +83,7 @@ const MeetWriters = () => {
               <a
                 // href={`/author-details`}
                 onClick={() => {
-                  localStorage.setItem("selectedUserId", user.id);
+                  localStorage.setItem("selectedUserId", user?.id);
                   router.push("/author-details");
                 }}
                 className="flex items-center justify-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] cursor-pointer"

@@ -1227,6 +1227,7 @@ export const GET_CONTACT_US = gql`
           ... on FlexibleContentFlexibleContentContactUsLayout {
             contactTitle
             contactUsDescription
+            joinOurTeamLink
           }
         }
       }
@@ -1886,6 +1887,57 @@ export const GET_POST_BY_SLUG = gql`
       title
       content
       date
+      commentCount
+    comments(where: {parent: 0, order: ASC}) {
+      nodes {
+        id
+        databaseId
+        content
+        date
+        approved
+        author {
+          node {
+            id
+            name
+            ... on User {
+              id
+              email
+              userProfileImage {
+                userRole
+                userProfileImage {
+                  node {
+                    altText
+                    sourceUrl
+                  }
+                }
+              }
+            }
+          }
+        }
+        replies {
+          nodes {
+            id
+            databaseId
+            content
+            date
+            approved
+            author {
+              node {
+                id
+                name
+                ... on User {
+                  id
+                  email
+                  userProfileImage {
+                    userRole
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
      author {
       node {
         name
@@ -2079,3 +2131,91 @@ export const GET_SERVICE_BY_SLUG = gql`
     }
   }
 `;
+export const GET_AUTHORS = gql`
+  query getAuthors {
+    users {
+      nodes {
+        id
+        name
+        description
+        email
+        userProfileImage {
+          userRole
+          userProfileImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+          socialTitle
+          socialMedia {
+            fieldGroupName
+            socialLink {
+              title
+              url
+              target
+            }
+            socialSvg {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+          }
+          hour
+          honors {
+            fieldGroupName
+            honorsImages {
+              node {
+                altText
+                uri
+                sourceUrl
+              }
+            }
+          }
+          fieldGroupName
+          discoverSvg {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+          discoverMyJourneyTitle
+          authorDetailDescription
+          authorDescription
+          blogTitle
+          contactSection {
+            contactTitle
+            contactDescription
+            contactLink {
+              url
+              title
+              target
+            }
+            bgImage {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+          }
+        }
+        posts {
+          nodes {
+            id
+            title
+            slug
+            uri
+            commentCount
+            featuredImage {
+              node {
+                altText
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

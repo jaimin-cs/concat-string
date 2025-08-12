@@ -11,7 +11,7 @@ const FutureTech = () => {
   // Fetch all posts for the selected category
   const { loading, error, data } = useQuery(GET_BLOG_POSTS, {
     variables: {
-      categorySlug: selectedCategory ,
+      categorySlug: selectedCategory,
       perPage: 100, // Fetch more posts for better pagination
       after: null,
     },

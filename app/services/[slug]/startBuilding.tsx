@@ -65,7 +65,7 @@ const StartBuilding: React.FC<Props> = ({ data }) => {
                       </svg>
                       <a
                         href={item.contactTitle.url}
-                        className="font-lato font-bold text-[18px] leading-[100%] text-white"
+                        className="font-lato font-bold text-[18px] leading-[100%] text-white hover:text-red-500 transition-colors duration-300"
                       >
                         {item.contactTitle.title}
                       </a>

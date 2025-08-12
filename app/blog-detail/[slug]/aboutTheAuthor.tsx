@@ -1,9 +1,11 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 interface Props {
   post: any;
 }
 const AboutTheAuthor: React.FC<Props> = ({ post }) => {
+  const router = useRouter();
   return (
     <section className="pt-[80px]">
       <div className="container max-w-[1400px] px-[20px] mx-auto">
@@ -41,8 +43,14 @@ const AboutTheAuthor: React.FC<Props> = ({ post }) => {
                   </div>
                   <div className="flex flex-col gap-[30px] items-start">
                     <a
-                      href="author-detail.html"
-                      className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] hover:opacity-80 transition-opacity"
+                      onClick={() => {
+                        localStorage.setItem(
+                          "selectedUserId",
+                          post?.author?.id
+                        );
+                        router.push("/author-details");
+                      }}
+                      className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%]"
                     >
                       {
                         post?.author?.node?.userProfileImage

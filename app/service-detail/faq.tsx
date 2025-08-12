@@ -9,9 +9,12 @@ const Faq = () => {
   const { data, loading, error } = useQuery(GET_SERVICE_DETAIL_FAQ);
 
   // Find the first technology node with FAQ data
-  const techNode = data?.page?.flexibleContent?.flexibleContent?.[0]?.technologies?.nodes?.find(
-    (node: any) => node?.technologiesSettings?.faqTitle && node?.technologiesSettings?.faq?.nodes?.length > 0
-  );
+  const techNode =
+    data?.page?.flexibleContent?.flexibleContent?.[0]?.technologies?.nodes?.find(
+      (node: any) =>
+        node?.technologiesSettings?.faqTitle &&
+        node?.technologiesSettings?.faq?.nodes?.length > 0
+    );
   const faqTitle = techNode?.technologiesSettings?.faqTitle || "FAQ";
   const faqItems = techNode?.technologiesSettings?.faq?.nodes || [];
 
@@ -60,20 +63,38 @@ const Faq = () => {
             {loading && <p className="text-white">Loading...</p>}
             {error && <p className="text-red-500">Error loading FAQ.</p>}
             {faqItems.map((faq: any, idx: number) => (
-              <div key={idx} className="faq-wrapper rounded-[12px] border border-[#2F2F2F] transition-all duration-300">
-                <div className="faq-item py-[24px] 2xl:px-[30px] xl:px-[30px] lg:px-[25px] md:px-[25px] sm:px-[25px] px-[20px] overflow-hidden rounded-[12px] flex flex-col items-start transition-all duration-300 bg-black" style={{ borderImageSlice: 1 }}>
-                  <div className="faq-head flex justify-between items-center w-full">
+              <div
+                key={idx}
+                className="faq-wrapper rounded-[12px] border border-[#2F2F2F] transition-all duration-300"
+              >
+                <div
+                  className="faq-item py-[24px] 2xl:px-[30px] xl:px-[30px] lg:px-[25px] md:px-[25px] sm:px-[25px] px-[20px] overflow-hidden rounded-[12px] flex flex-col items-start transition-all duration-300 bg-black"
+                  style={{ borderImageSlice: 1 }}
+                >
+                  <div className="faq-head flex justify-between items-center w-full cursor-pointer">
                     <h4 className="font-denton text-white font-bold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text-[18px] 2xl:leading-[34px] xl:leading-[34px] lg:leading-[30px] md:leading-[30px] sm:leading-[25px] leading-[25px]">
                       {faq.title}
                     </h4>
                     <span className="faq-icon cursor-pointer">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9" fill="none">
-                        <path d="M8.0853 8.5731L14.7604 1.89791C14.9149 1.74352 15 1.53743 15 1.31767C15 1.09792 14.9149 0.891822 14.7604 0.737433L14.2689 0.245852C13.9487 -0.0740237 13.4282 -0.0740238 13.1084 0.245852L7.50311 5.85117L1.89157 0.239632C1.73706 0.0852427 1.53108 -5.88745e-07 1.31145 -5.98345e-07C1.09158 -6.07957e-07 0.885602 0.0852426 0.730968 0.239632L0.239632 0.731213C0.0851202 0.885724 0 1.0917 0 1.31145C0 1.53121 0.0851202 1.7373 0.239632 1.89169L6.9208 8.5731C7.0758 8.72786 7.28275 8.81286 7.50274 8.81237C7.7236 8.81286 7.93042 8.72786 8.0853 8.5731Z" fill="white"/>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="15"
+                        height="9"
+                        viewBox="0 0 15 9"
+                        fill="none"
+                      >
+                        <path
+                          d="M8.0853 8.5731L14.7604 1.89791C14.9149 1.74352 15 1.53743 15 1.31767C15 1.09792 14.9149 0.891822 14.7604 0.737433L14.2689 0.245852C13.9487 -0.0740237 13.4282 -0.0740238 13.1084 0.245852L7.50311 5.85117L1.89157 0.239632C1.73706 0.0852427 1.53108 -5.88745e-07 1.31145 -5.98345e-07C1.09158 -6.07957e-07 0.885602 0.0852426 0.730968 0.239632L0.239632 0.731213C0.0851202 0.885724 0 1.0917 0 1.31145C0 1.53121 0.0851202 1.7373 0.239632 1.89169L6.9208 8.5731C7.0758 8.72786 7.28275 8.81286 7.50274 8.81237C7.7236 8.81286 7.93042 8.72786 8.0853 8.5731Z"
+                          fill="white"
+                        />
                       </svg>
                     </span>
                   </div>
                   <div className="faq-content transition-all duration-300 ease-in-out overflow-hidden max-h-0">
-                    <div className="font-lato text-[16px] font-normal leading-[26px] text-[#C3C3C3]" dangerouslySetInnerHTML={{ __html: faq.content }} />
+                    <div
+                      className="font-lato text-[16px] font-normal leading-[26px] text-[#C3C3C3]"
+                      dangerouslySetInnerHTML={{ __html: faq.content }}
+                    />
                   </div>
                 </div>
               </div>

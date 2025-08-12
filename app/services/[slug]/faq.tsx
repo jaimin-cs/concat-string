@@ -66,7 +66,7 @@ const Faq: React.FC<Props> = ({ data }) => {
                   className="faq-item py-[24px] 2xl:px-[30px] xl:px-[30px] lg:px-[25px] md:px-[25px] sm:px-[25px] px-[20px] overflow-hidden rounded-[12px] flex flex-col items-start transition-all duration-300 bg-black"
                   style={{ borderImageSlice: 1 }}
                 >
-                  <div className="faq-head flex justify-between items-center w-full">
+                  <div className="faq-head flex justify-between items-center w-full cursor-pointer">
                     <h4 className="font-denton text-white font-semibold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text-[18px] 2xl:leading-[34px] xl:leading-[34px] lg:leading-[30px] md:leading-[30px] sm:leading-[25px] leading-[25px]">
                       {faq.title}
                     </h4>
