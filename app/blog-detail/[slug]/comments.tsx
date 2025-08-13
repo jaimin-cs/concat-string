@@ -1,13 +1,19 @@
 "use client";
 import React from "react";
 
-const Comments = () => {
+interface Props {
+  post: any;
+}
+
+const Comments: React.FC<Props> = ({ post }) => {
+  console.log(post, "post");
+
   return (
     <section className="pt-[80px]">
       <div className="container max-w-[1400px] px-[20px] mx-auto">
-        <div className="2xl:max-w-[1030px] xl:max-w-[1030px] lg:max-w-[1030px] md:max-w-full sm:max-w-full max-w-full">
-          <h6 className="font-denton font-bold font-lato text-[38px] leading-[36px] text-white 2xl:mb-[40px] xl:mb-[40px] lg:mb-[40px] md:mb-[30px] sm:mb-[25px] mb-[20px]">
-            4 Comments{" "}
+        {/* <div className="2xl:max-w-[1030px] xl:max-w-[1030px] lg:max-w-[1030px] md:max-w-full sm:max-w-full max-w-full">
+          <h6 className="font-denton font-lato text-[36px] leading-[36px] text-white 2xl:mb-[40px] xl:mb-[40px] lg:mb-[40px] md:mb-[30px] sm:mb-[25px] mb-[20px]">
+            {post?.commentCount} Comments{" "}
           </h6>
           <form className="flex flex-col 2xl:gap-[60px] xl:gap-[60px] lg:gap-[40px] md:gap-[30px] sm:gap-[25px] gap-[20px] items-center">
             <div className="flex flex-col gap-[24px] w-full">
@@ -23,7 +29,7 @@ const Comments = () => {
                     </p>
                   </div>
                 </div>
-                <textarea 
+                <textarea
                   className="font-normal text-[18px] leading-[28px] text-[#C3C3C3] bg-[#292929] rounded-[14px] py-[26px] px-[24px] mt-[20px] mb-[16px] w-full h-[136px]"
                   defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
                 />
@@ -60,7 +66,7 @@ const Comments = () => {
                   </div>
                 </div>
 
-                <textarea 
+                <textarea
                   className="font-normal text-[18px] leading-[28px] text-[#C3C3C3] bg-[#292929] rounded-[14px] py-[26px] px-[24px] mt-[20px] mb-[16px] w-full h-[136px]"
                   defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore."
                 />
@@ -120,7 +126,7 @@ const Comments = () => {
               </a>
             </div>
           </form>
-        </div>
+        </div> */}
       </div>
     </section>
   );

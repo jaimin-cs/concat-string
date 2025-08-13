@@ -27,10 +27,10 @@ const ServiceHighlights = () => {
     <section className="flex flex-col gap-[60px] items-center justify-center 2xl:pt-[100px] xl:pt-[100px] lg:pt-[80px] md:pt-[80px] sm:pt-[60px] pt-[50px]">
       <div className="max-w-[1432px] px-4 mx-auto  w-full">
         <div className="flex flex-col 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[50px] sm:gap-[40px] gap-[30px] items-center justify-center">
-          <h3 className="h3 text-center items-center text-white max-w-[970px] 2xl:leading-[80px] xl:leading-[80px] lg:leading-[70px] md:leading-[60px] sm:leading-[50px] leading-[40px] 2xl:text-[70px] xl:text-[70px] lg:text-[60px] md:text-[50px] sm:text-[40px] text-[30px]">
+          <h2 className="h2 text-white text-center">
             {servicesData?.discoverServicesTitle ||
               "Discover our services that are vital for us:"}
-          </h3>
+          </h2>
           <div className="flex flex-col 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[50px] sm:gap-[40px] gap-[30px]">
             {services.map((service, index) => {
               const settings = service.technologiesSettings;
@@ -55,109 +55,107 @@ const ServiceHighlights = () => {
                           </p>
                         </div>
                         <div className="flex flex-row flex-wrap gap-[20px] items-center">
-                        {Array.isArray(webServicesList) &&
-                          webServicesList.length > 0 && (
-                            <div className="relative w-[330px]">
-                              <button
-                                type="button"
-                                onClick={toggleDropdown}
-                                aria-haspopup="listbox"
-                                aria-expanded={isOpen}
-                                className={`cursor-pointer flex items-center justify-between w-full px-[20px] py-[12px] rounded-full text-white text-[17px] font-normal leading-[100%] border border-[#E72125] transition-all duration-300 ${
-                                  isOpen ? "bg-[#E72125]" : "bg-[#E72125]/10"
-                                }`}
-                              >
-                                <span id="selected-service">{selected}</span>
-                                <svg
-                                  className={`w-4 h-4 transition-transform duration-300 ${
-                                    isOpen ? "rotate-180" : ""
-                                  }`}
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="3"
-                                  viewBox="0 0 24 24"
-                                  aria-hidden="true"
+                          {Array.isArray(webServicesList) &&
+                            webServicesList.length > 0 && (
+                              <div className="relative w-[330px]">
+                                <button
+                                  type="button"
+                                  onClick={toggleDropdown}
+                                  aria-haspopup="listbox"
+                                  aria-expanded={isOpen}
+                                  className={`cursor-pointer flex items-center justify-between w-full px-[20px] py-[12px] rounded-full text-white text-[17px] font-normal leading-[100%] border border-[#E72125] transition-all duration-300 ${isOpen ? "bg-[#E72125]" : "bg-[#E72125]/10"
+                                    }`}
                                 >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M19 9l-7 7-7-7"
-                                  />
-                                </svg>
-                              </button>
+                                  <span id="selected-service">{selected}</span>
+                                  <svg
+                                    className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                                      }`}
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="3"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      d="M19 9l-7 7-7-7"
+                                    />
+                                  </svg>
+                                </button>
 
-                              {isOpen && Array.isArray(webServicesList) && (
-                                <div
-                                  className="absolute top-full mt-2 w-full rounded-[10px] bg-[#2B2B2B] text-white z-10 overflow-hidden"
-                                  role="listbox"
-                                  tabIndex={-1}
-                                  aria-label="Services dropdown"
-                                >
-                                  <div className="p-[20px]">
-                                    <ul className="flex flex-col gap-[8px] text-[18px] font-medium text-white">
-                                      {webServicesList.map((serviceItem) => (
-                                        <li
-                                          key={serviceItem.id}
-                                          onClick={() =>
-                                            selectService(
-                                              serviceItem.technologiesSettings
-                                                .ourServiceTitle,
-                                              serviceItem.slug
-                                            )
-                                          }
-                                          className="hover:text-[#E72125] cursor-pointer transition"
-                                          role="option"
-                                          aria-selected={
-                                            selected ===
-                                            serviceItem.technologiesSettings
-                                              .ourServiceTitle
-                                          }
-                                          tabIndex={0}
-                                          onKeyDown={(e) => {
-                                            if (
-                                              e.key === "Enter" ||
-                                              e.key === " "
-                                            ) {
+                                {isOpen && Array.isArray(webServicesList) && (
+                                  <div
+                                    className="absolute top-full mt-2 w-full rounded-[10px] bg-[#2B2B2B] text-white z-10 overflow-hidden"
+                                    role="listbox"
+                                    tabIndex={-1}
+                                    aria-label="Services dropdown"
+                                  >
+                                    <div className="p-[20px]">
+                                      <ul className="flex flex-col gap-[8px] text-[18px] font-medium text-white">
+                                        {webServicesList.map((serviceItem) => (
+                                          <li
+                                            key={serviceItem.id}
+                                            onClick={() =>
                                               selectService(
                                                 serviceItem.technologiesSettings
                                                   .ourServiceTitle,
                                                 serviceItem.slug
-                                              );
+                                              )
                                             }
-                                          }}
-                                        >
-                                          {
-                                            serviceItem.technologiesSettings
-                                              .ourServiceTitle
-                                          }
-                                        </li>
-                                      ))}
-                                    </ul>
+                                            className="hover:text-[#E72125] cursor-pointer transition"
+                                            role="option"
+                                            aria-selected={
+                                              selected ===
+                                              serviceItem.technologiesSettings
+                                                .ourServiceTitle
+                                            }
+                                            tabIndex={0}
+                                            onKeyDown={(e) => {
+                                              if (
+                                                e.key === "Enter" ||
+                                                e.key === " "
+                                              ) {
+                                                selectService(
+                                                  serviceItem.technologiesSettings
+                                                    .ourServiceTitle,
+                                                  serviceItem.slug
+                                                );
+                                              }
+                                            }}
+                                          >
+                                            {
+                                              serviceItem.technologiesSettings
+                                                .ourServiceTitle
+                                            }
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
                                   </div>
-                                </div>
-                              )}
-                            </div>
-                          )}
-                        <a
-                          // href={
-                          //   settings.ourServiceLink?.url || "/service-detail"
-                          // }
-                          href={`/services/${service?.slug}`}
-                          className="flex items-center gap-[16px] font-denton text-[18px] leading-[100%] font-bold text-white hover:underline"
-                        >
-                          Read more
-                          <img
-                            src={
-                              settings.redirectSvg?.node?.sourceUrl ||
-                              "./images/gif/progress.gif"
-                            }
-                            alt={
-                              settings.redirectSvg?.node?.altText || "progress"
-                            }
-                            width="46"
-                            height="46"
-                          />
-                        </a>
+                                )}
+                              </div>
+                            )}
+                          <a
+                            // href={
+                            //   settings.ourServiceLink?.url || "/service-detail"
+                            // }
+                            href={`/services/${service?.slug}`}
+                            className="flex items-center gap-[16px] font-denton text-[18px] leading-[100%] font-bold text-white hover:underline"
+                          >
+                            Read more
+                            <img
+                              src={
+                                settings.redirectSvg?.node?.sourceUrl ||
+                                "./images/gif/progress.gif"
+                              }
+                              alt={
+                                settings.redirectSvg?.node?.altText || "progress"
+                              }
+                              width="46"
+                              height="46"
+                            />
+                          </a>
                         </div>
                       </div>
                       <div className="flex 2xl:w-[298px] xl:w-[298px] lg:w-[298px] md:w-[298px] sm:w-full w-full 2xl:order-2 xl:order-2 lg:order-2 md:order-2 sm:order-1 order-1">
@@ -198,15 +196,13 @@ const ServiceHighlights = () => {
                                 onClick={toggleDropdown}
                                 aria-haspopup="listbox"
                                 aria-expanded={isOpen}
-                                className={`cursor-pointer flex items-center justify-between w-full px-[20px] py-[12px] rounded-full text-white text-[17px] font-normal leading-[100%] border border-[#E72125] transition-all duration-300 ${
-                                  isOpen ? "bg-[#E72125]" : "bg-[#E72125]/10"
-                                }`}
+                                className={`cursor-pointer flex items-center justify-between w-full px-[20px] py-[12px] rounded-full text-white text-[17px] font-normal leading-[100%] border border-[#E72125] transition-all duration-300 ${isOpen ? "bg-[#E72125]" : "bg-[#E72125]/10"
+                                  }`}
                               >
                                 <span id="selected-service">{selected}</span>
                                 <svg
-                                  className={`w-4 h-4 transition-transform duration-300 ${
-                                    isOpen ? "rotate-180" : ""
-                                  }`}
+                                  className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                                    }`}
                                   fill="none"
                                   stroke="currentColor"
                                   strokeWidth="3"

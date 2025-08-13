@@ -19,7 +19,7 @@ const OurServices = () => {
   const videoType = bannerData?.serviceVideo?.node?.mimeType || "video/mp4";
 
   return (
-    <section className="min-h-full 2xl:px-[110px] xl:px-[100px] lg:px-[80px] md:px-[60px] sm:px-[40px] px-[20px] ">
+    <section className="min-h-full">
       <div className="relative rounded-b-[34px] rounded-[34px] 2xl:pt-[390px] xl:pt-[390px] lg:pt-[350px] lg:pt-[320px] md:pt-[300px] sm:pt-[300px] pt-[250px] 2xl:pb-[310px] xl:pb-[310px] lg:pb-[300px] md:pb-[250px] sm:pb-[200px] pb-[200px] overflow-hidden">
         {videoUrl && (
           <video

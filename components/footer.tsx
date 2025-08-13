@@ -145,6 +145,13 @@ const Footer = () => {
                     </button>
                   </div>
                 </div>
+                {emailError && isTouched && (
+                  <span className="flex items-start justify-start w-full md:hidden">
+                    <p className="text-[#ff0005] text-sm font-medium ms-[40px]">
+                      {emailError}
+                    </p>
+                  </span>
+                )}
                 <button
                   className="group 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full 2xl:hidden xl:hidden lg:hidden md:hidden sm:flex flex"
                   type="submit"
@@ -157,7 +164,7 @@ const Footer = () => {
                   </div>
                 </button>
                 {emailError && isTouched && (
-                  <span className="flex items-start justify-start w-full">
+                  <span className="md:flex items-start justify-start w-full hidden">
                     <p className="text-[#ff0005] text-sm font-medium ms-[40px]">
                       {emailError}
                     </p>

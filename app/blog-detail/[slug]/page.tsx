@@ -29,7 +29,6 @@ const page = async ({ params }: Props) => {
     variables: { slug: slug },
   });
   const post = data?.post;
-
   if (!post) {
     return <div>Post not found</div>;
   }
@@ -38,7 +37,7 @@ const page = async ({ params }: Props) => {
     <>
       <FutureOfAi post={post} />
       <ShareItOn post={post?.blogDetail} />
-      <Comments />
+      <Comments post={post} />
       <AboutTheAuthor post={post} />
       <MoreFromMe post={post} />
     </>

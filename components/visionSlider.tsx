@@ -92,7 +92,14 @@ const VisionSlider: React.FC<VisionSliderProps> = ({ padding }) => {
                             "progress"
                           }
                           onClick={() =>
-                            router.push(`/project-detail/${slide?.slug}`)
+                            router.push(
+                              `/project-detail/${slide.projectSettings.relatedProjectName
+                                ?.toLowerCase()
+                                .trim()
+                                .replace(/[^a-z0-9\s-]/g, "")
+                                .replace(/\s+/g, "-")
+                                .replace(/-+/g, "-")}`
+                            )
                           }
                         />
                       </span>

@@ -71,7 +71,7 @@ const MultiStepForm = () => {
             name: "phone",
             label: "Phone number",
             type: "number",
-            required: false,
+            required: true,
           },
           {
             name: "agencyName",
@@ -209,7 +209,7 @@ const MultiStepForm = () => {
             name: "phone",
             label: "Phone number",
             type: "number",
-            required: false,
+            required: true,
           },
           {
             name: "enquiryType",
@@ -268,7 +268,7 @@ const MultiStepForm = () => {
     if (!formType) return false;
 
     const steps = formSteps[formType];
-    if (!steps || step >= steps.length - 1) return false;
+    if (!steps || step >= steps.length) return false;
 
     const currentStepData = steps[step];
     if (!currentStepData) return false;
@@ -536,7 +536,15 @@ const MultiStepForm = () => {
               required={field.required}
               value={formData[field.name] || ""}
               onBlur={() => handleBlur(field.name)}
-              onChange={(e) => handleInputChange(field.name, e.target.value)}
+              onChange={(e) => {
+                let value = e.target.value;
+                if (field.name === "phone") {
+                  value = value.replace(/\D/g, "");
+                  if (value.length > 15) value = value.slice(0, 15);
+                }
+                handleInputChange(field.name, value);
+              }}
+              // onChange={(e) => handleInputChange(field.name, e.target.value)}
               className="w-full h-[60px] px-[20px] py-[15px] rounded-[12px] border border-[#FFFFFF70] bg-transparent text-white font-monte font-medium text-[16px] leading-[24px] placeholder:text-white/70 focus:bg-[#D9D9D94D] !focus:border-0 focus:outline-none focus:ring-0 transition-all duration-300"
             />
             {error && <p className="mt-1 text-red-400 text-sm">{error}</p>}
