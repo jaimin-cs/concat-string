@@ -34,7 +34,7 @@ const WhyConcatString: React.FC<Props> = ({ data }) => {
               )}
             </div>
             <div className="relative 2xl:w-[50%] xl:w-[50%] lg:w-[50%] md:w-full sm:w-full w-full">
-              <div className="flex flex-col gap-[22px] max-h-[740px] overflow-y-auto scrollbar-hide">
+              <div className="flex flex-col gap-[22px] max-h-[740px] overflow-y-auto custom-scrollbar pe-[5px]">
                 {partnerFeatures?.map((feature: any, idx: number) => (
                   <div
                     key={idx}

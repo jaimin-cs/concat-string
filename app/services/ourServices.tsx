@@ -1,22 +1,22 @@
 "use client";
-import React from 'react'
-import { useQuery } from '@apollo/client'
-import { GET_OUR_SERVICE_BANNER } from '@/lib/queries'
+import React from "react";
+import { useQuery } from "@apollo/client";
+import { GET_OUR_SERVICE_BANNER } from "@/lib/queries";
 
 const OurServices = () => {
-  const { data, loading, error } = useQuery(GET_OUR_SERVICE_BANNER)
+  const { data, loading, error } = useQuery(GET_OUR_SERVICE_BANNER);
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>Error loading service banner.</div>
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading service banner.</div>;
 
   // Find the correct layout block
   const bannerData = data?.page?.flexibleContent?.flexibleContent?.find(
     (block: any) => block?.ourServiceTitle && block?.serviceVideo
-  )
+  );
 
-  const title = bannerData?.ourServiceTitle || 'Our Services'
-  const videoUrl = bannerData?.serviceVideo?.node?.mediaItemUrl
-  const videoType = bannerData?.serviceVideo?.node?.mimeType || 'video/mp4'
+  const title = bannerData?.ourServiceTitle || "Our Services";
+  const videoUrl = bannerData?.serviceVideo?.node?.mediaItemUrl;
+  const videoType = bannerData?.serviceVideo?.node?.mimeType || "video/mp4";
 
   return (
     <section className="min-h-full 2xl:px-[110px] xl:px-[100px] lg:px-[80px] md:px-[60px] sm:px-[40px] px-[20px] ">
@@ -33,7 +33,7 @@ const OurServices = () => {
             Your browser does not support the video tag.
           </video>
         )}
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 mx-auto px-[20px] flex items-center justify-center">
           <h1 className="h1 text-center text-white text-[45px] sm:text-[60px] md:text-[70px] lg:text-[80px] xl:text-[100px] 2xl:text-[100px] max-w-[1200px]">
             {title}
@@ -41,6 +41,6 @@ const OurServices = () => {
         </div>
       </div>
     </section>
-  )
-}
-export default OurServices
+  );
+};
+export default OurServices;

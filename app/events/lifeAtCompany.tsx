@@ -44,7 +44,8 @@ export default function LifeAtCompany() {
   const allEvents = lifeAtCompanyData?.events?.nodes || [];
   // Show only first 3 events
   const events = allEvents.slice(0, 3);
-  
+  console.log(allEvents, "allEvents");
+
   // Check if there are any events to display
   if (!allEvents || allEvents.length === 0) {
     return (
@@ -57,7 +58,9 @@ export default function LifeAtCompany() {
             </p>
           </div>
           <div className="text-center py-[60px]">
-            <p className="text-white text-lg">No events to display at the moment</p>
+            <p className="text-white text-lg">
+              No events to display at the moment
+            </p>
           </div>
         </div>
       </section>
@@ -109,7 +112,16 @@ export default function LifeAtCompany() {
                             __html: event.eventSettings?.eventDescription,
                           }}
                         />
-                        <div className="flex items-center gap-[10px] cursor-pointer hover:opacity-80 transition-opacity">
+                        <div
+                          onClick={() => {
+                            if (event.eventSettings?.eventViewMoreLink?.url) {
+                              window.open(
+                                event.eventSettings.eventViewMoreLink.url
+                              );
+                            }
+                          }}
+                          className="flex items-center gap-[10px] cursor-pointer hover:opacity-80 transition-opacity"
+                        >
                           <span className="text-white 2xl:text-[18px] xl:text-[18px] lg:text-[16px] md:text-[15px] sm:text-[14px] text-[13px] font-bold 2xl:leading-[24px] xl:leading-[24px] lg:leading-[20px] md:leading-[19px] sm:leading-[18px] leading-[17px] font-denton hover:opacity-80 transition-opacity">
                             {event.eventSettings?.eventViewMoreLink?.title}
                           </span>
@@ -146,12 +158,12 @@ export default function LifeAtCompany() {
                         <div className="w-full 2xl:h-[380px] xl:h-[380px] lg:h-[300px] md:h-[250px] sm:h-[200px] h-[180px] rounded-[14px] overflow-hidden bg-[#D9D9D9]">
                           <img
                             src={
-                              event.eventSettings?.eventImages?.[0]?.eventImage?.node
-                                ?.sourceUrl
+                              event.eventSettings?.eventImages?.[0]?.eventImage
+                                ?.node?.sourceUrl
                             }
                             alt={
-                              event.eventSettings?.eventImages?.[0]?.eventImage?.node
-                                ?.altText
+                              event.eventSettings?.eventImages?.[0]?.eventImage
+                                ?.node?.altText
                             }
                             className="w-full h-full object-cover"
                           />

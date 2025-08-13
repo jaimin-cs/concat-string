@@ -1102,119 +1102,125 @@ export const GET_SERVICE_DETAIL_WHY_CHOOSE_US = gql`
 export const GET_MARKET_OPS_AND_OVERVIEW = gql`
   query GetMarketOpsAndOverview($slug: ID!) {
     project(id: $slug, idType: SLUG) {
-      slug
-      title
-      content
-      featuredImage {
+     slug
+    title
+    content
+    featuredImage {
+      node {
+        sourceUrl
+        altText
+      }
+    }
+    projectSettings {
+      heading
+      subHeading
+      aboutCsTitle
+      aboutCsDescription
+      caseStudyClientFeedbackTitle
+      caseStudyClientFeedbackDescription
+      keyObjectiveTitle
+      businessPerformanceTitle
+      businessPerformanceImage {
         node {
-          sourceUrl
           altText
+          sourceUrl
         }
       }
-      projectSettings {
-        heading
-        subHeading
-        aboutCsTitle
-        aboutCsDescription
-        caseStudyClientFeedbackTitle
-        caseStudyClientFeedbackDescription
-        keyObjectiveTitle
-        businessPerformanceTitle
-        businessPerformanceImage {
-          node {
-            altText
-            sourceUrl
-          }
+      performanceList {
+        performanceList
+      }
+      resultTitle
+      resultKeyPoints {
+        resultList
+      }
+      resultImage {
+        node {
+          altText
+          sourceUrl
         }
-        performanceList {
-          performanceList
+      }
+      conclusionTitle
+      conclusionDescription
+      projectOverviewTitle
+      projectOverviewDescription
+      projectOverviewImage {
+        node {
+          altText
+          sourceUrl
         }
-        resultTitle
-        resultKeyPoints {
-          resultList
+      }
+      serviceTitle
+      services {
+        service
+        servicesDescription
+      }
+      serviceImage {
+        node {
+          altText
+          sourceUrl
         }
-        resultImage {
-          node {
-            altText
-            sourceUrl
-          }
+      }
+      ourApproachDescription
+      servicePhoto {
+        node {
+          altText
+          sourceUrl
         }
-        conclusionTitle
-        conclusionDescription
-        projectOverviewTitle
-        projectOverviewDescription
-        projectOverviewImage {
-          node {
-            altText
-            sourceUrl
-          }
-        }
-        serviceTitle
-        services {
-          service
-           servicesDescription
-        }
-        serviceImage {
-          node {
-            altText
-            sourceUrl
-          }
-        }
-        ourApproachDescription
-        servicePhoto {
-          node {
-            altText
-            sourceUrl
-          }
-        }
-          subHeading
-        serviceHighlight {
-          serviceHighlightTitle
-        }
-        weAchievedTitle
-        achievedBlocks {
-          archivedNumber
-          achievedTitle
-        }
-        clientFeedbackTiitle
-        clientFeedbacks {
-          nodes {
-            ... on Testimonial {
-              testimonialSettings {
-                clientName
-                clientDesignation
-                clientFeedback
-              }
+      }
+      serviceHighlight {
+        serviceHighlightTitle
+      }
+      weAchievedTitle
+      achievedBlocks {
+        archivedNumber
+        achievedTitle
+      }
+      clientFeedbackTiitle
+      clientFeedbacks {
+        nodes {
+          ... on Testimonial {
+            testimonialSettings {
+              clientName
+              clientDesignation
+              clientFeedback
             }
           }
         }
-        relatedProjectTitle
-        projects {
-          nodes {
-            ... on Project {
-              projectSettings {
-                relatedProjectName
-                relatedProjectImage {
-                  node {
-                    sourceUrl
-                    altText
-                  }
+      }
+      relatedProjectTitle
+      projects {
+        nodes {
+          ... on Project {
+            projectSettings {
+              relatedProjectName
+              relatedProjectImage {
+                node {
+                  sourceUrl
+                  altText
                 }
-                projectLink {
-                  url
-                  target
-                }
-                arrowSvg {
-                  node {
-                    sourceUrl
-                    altText
-                  }
+              }
+              projectLink {
+                url
+                target
+              }
+              arrowSvg {
+                node {
+                  sourceUrl
+                  altText
                 }
               }
             }
           }
         }
       }
+      relatedProjectImage {
+        node {
+          altText
+          sourceUrl
+        }
+      }
+      relatedProjectName
+    }
     }
   }
 `;

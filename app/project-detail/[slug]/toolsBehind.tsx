@@ -17,8 +17,8 @@ const ToolsBehind: React.FC<Props> = ({ project }) => {
     <>
       <section className="py-[120px]">
         <div className="container max-w-[1440px] px-[20px] mx-auto">
-          <div className="bg-[#2E0707] rounded-[16px] 2xl:pt-[60px] xl:pt-[60px] lg:pt-[50px] md:pt-[40px] sm:pt-[30px] pt-[20px] 2xl:px-[90px] xl:px-[90px] lg:px-[60px] md:px-[60px] sm:px-[40px] px-[20px] 2xl:pb-[90px] xl:pb-[90px] lg:pb-[60px] md:pb-[60px] sm:pb-[40px] pb-[20px]">
-            <h2 className="h2 text-center text-white mb-[80px]">
+          <div className="bg-[#2E0707] rounded-[16px] 2xl:pt-[60px] xl:pt-[60px] lg:pt-[50px] md:pt-[40px] sm:pt-[30px] pt-[20px] 2xl:px-[90px] xl:px-[90px] lg:px-[60px] md:px-[60px] sm:px-[40px] px-[20px] 2xl:pb-[90px] xl:pb-[90px] lg:pb-[60px] md:pb-[60px] sm:pb-[40px] pb-[20px] pr-[20px] sm:pr-[25px] md:pr-[35px] lg:pr-[45px] xl:pr-[55px] 2xl:pr-[65px]">
+            <h2 className="h2 text-center text-white mb-[80px] normal-case">
               {businessPerformanceTitle}
             </h2>
             <div className="flex items-top 2xl:gap-[60px] xl:gap-[50px] lg:gap-[40px] md:gap-[30px] sm:gap-[30px] gap-[30px] 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col">
@@ -33,7 +33,7 @@ const ToolsBehind: React.FC<Props> = ({ project }) => {
                 {performanceList?.map((item: any, index: number) => (
                   <li key={index} className="flex items-top gap-[10px]">
                     <svg
-                      className="mt-[7px]"
+                      className="mt-[7px] w-[21px] h-[10px] min-w-[21px] min-h-[10px]"
                       xmlns="http://www.w3.org/2000/svg"
                       width="21"
                       height="10"

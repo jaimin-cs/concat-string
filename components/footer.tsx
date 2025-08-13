@@ -122,7 +122,8 @@ const Footer = () => {
                 className="w-full flex flex-col justify-center items-center gap-[20px] max-w-[823px]"
               >
                 <div className="subscribe 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full">
-                  <div className="input flex items-center rounded-full py-[10px] h-full 2xl:w-[823px] xl:w-[823px] lg:w-[700px] leading-[34px] 2xl:px-6 xl:px-6 lg:px-6 md:px-6 sm:px-0 px-0 md:w-full sm:w-full w-full">
+                  <div className="input flex items-center rounded-full py-[10px] px-[10px] h-full 2xl:w-[823px] xl:w-[823px] lg:w-[700px] leading-[34px] 2xl:px-[10px] xl:px-[10px] lg:px-[10px] md:px-[10px] sm:px-0 px-0 md:w-full sm:w-full w-full">
+                    {" "}
                     <input
                       type="text"
                       placeholder="Enter your email address"
@@ -131,7 +132,6 @@ const Footer = () => {
                       onBlur={handleEmailBlur}
                       className="flex-grow bg-transparent text-white font-lato font-semibold text-[16px] lg:text-[18px] leading-[36px] px-4 rounded-full focus:outline-none placeholder:text-white"
                     />
-
                     <button
                       className="group 2xl:flex xl:flex lg:flex md:flex sm:hidden hidden"
                       type="submit"

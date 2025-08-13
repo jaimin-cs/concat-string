@@ -286,7 +286,7 @@ const Faq = () => {
                   value={form.fullName}
                   onChange={handleFormChange}
                   onBlur={() => handleFieldBlur("fullName")}
-                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-lato font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D9] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
+                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-lato font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D94D] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
                 />
                 {touched.fullName && errors.fullName && (
                   <p className="text-red-400 text-sm mt-2 font-medium">
@@ -302,7 +302,7 @@ const Faq = () => {
                   value={form.emailAddress}
                   onChange={handleFormChange}
                   onBlur={() => handleFieldBlur("emailAddress")}
-                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-lato font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D9] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
+                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-lato font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D94D] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
                 />
                 {touched.emailAddress && errors.emailAddress && (
                   <p className="text-red-400 text-sm mt-2 font-medium">
@@ -313,7 +313,7 @@ const Faq = () => {
               <div className="w-full">
                 <textarea
                   name="message"
-                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-lato font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D9] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
+                  className="rounded-[12px] 2xl:p-[20px] xl:p-[20px] lg:p-[20px] md:p-[15px] sm:p-[15px] p-[15px] text-left font-lato font-medium text-white leading-[24px] border border-[#FFFFFF70] bg-transparent w-full focus:bg-[#D9D9D94D] focus:border-transparent focus:outline-none focus:ring-0 autofill:bg-transparent placeholder:text-white"
                   placeholder="Write your message"
                   value={form.message}
                   onChange={handleFormChange}
@@ -326,7 +326,7 @@ const Faq = () => {
                   </p>
                 )}
               </div>
-              <div className="flex justify-between gap-[10px] 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col">
+              <div className="flex justify-between items-center gap-[10px] 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col">
                 <div className="flex items-center">
                   <ReCAPTCHA
                     ref={recaptchaRef}

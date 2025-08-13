@@ -154,7 +154,7 @@ const WorkImpact: React.FC<WorkImpactProps> = ({ showViewMore = true }) => {
             {title}
           </h2>
 
-          <div className="works-tab flex flex-col 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[40px] sm:gap-[30px] gap-[30px]">
+          <div className="works-tab w-full flex flex-col 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[40px] sm:gap-[30px] gap-[30px]">
             <div className="works-tab-content-wrap">
               {projects.map((projNode: any, idx: number) => {
                 const project = projNode.projectSettings;

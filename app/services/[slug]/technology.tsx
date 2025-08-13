@@ -73,7 +73,7 @@ const Technology: React.FC<Props> = ({ data }) => {
             {techStack.map((stack: any) => {
               const itemCount = stack.techSubStack?.length || 0;
               const gridClasses = getGridColumns(itemCount);
-              
+
               return (
                 <div
                   key={stack.techStackName}
@@ -85,7 +85,7 @@ const Technology: React.FC<Props> = ({ data }) => {
                   {stack.techSubStack?.map((sub: any) => (
                     <div
                       key={sub.techSubStackName}
-                      className="p-[1px] rounded-[10px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-[140px] 2xl:w-[216px] xl:w-[216px] lg:w-[216px] md:w-full sm:w-full w-full"
+                      className="p-[1px] hover:shadow-[inset_0_0_16px_rgba(255,255,255,0.26),0_24px_124px_rgba(231,33,37,0.22)] cursor-pointer group rounded-[10px] bg-[linear-gradient(180deg,_#54A3DA_0%,_#E72125_100%)] h-[140px] 2xl:w-[216px] xl:w-[216px] lg:w-[216px] md:w-full sm:w-full w-full"
                     >
                       <div className="flex flex-col gap-[10px] items-center justify-center bg-[#2B2B2B] rounded-[10px] h-full w-full 2xl:py-[26px] xl:py-[26px] lg:py-[26px] md:py-[20px] sm:py-[20px] py-[20px]">
                         <img
@@ -96,6 +96,7 @@ const Technology: React.FC<Props> = ({ data }) => {
                           }
                           width="38"
                           height="54"
+                          className="group-hover:scale-[1.1] transition-all duration-300 ease-in-out"
                         />
                         <h5 className="font-denton font-medium text-[18px] leading-[100%] text-white">
                           {sub.techSubStackName}

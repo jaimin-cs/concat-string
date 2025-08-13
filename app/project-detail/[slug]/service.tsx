@@ -59,7 +59,7 @@ const Service: React.FC<Props> = ({ project }) => {
                 alt={serviceImage?.node?.altText}
                 width="895"
                 height="436"
-                className="2xl:w-max xl:w-max lg:w-max md:w-full sm:w-full w-full"
+                className="2xl:w-max xl:w-max lg:w-max md:w-full sm:w-full w-full shadow-custom rounded-[20px]"
               />
             </div>
             <div className="flex flex-col 2xl:gap-[80px] xl:gap-[80px] lg:gap-[60px] md:gap-[50px] sm:gap-[40px] gap-[30px] items-start">
@@ -73,10 +73,10 @@ const Service: React.FC<Props> = ({ project }) => {
                     ) => (
                       <li
                         key={idx}
-                        className="2xl:px-[30px] xl:px-[30px] lg:px-[30px] md:px-[20px] sm:px-[20px] px-[20px] py-[20px] rounded-[14px] bg-[#FFFFFF29] flex 2xl:items-center xl:items-center lg:items-center md:items-top sm:items-top items-top gap-[10px] w-full"
+                        className="2xl:px-[30px] xl:px-[30px] lg:px-[30px] md:px-[20px] sm:px-[20px] px-[20px] py-[20px] rounded-[14px] bg-[#FFFFFF29] flex 2xl:items-top xl:items-top lg:items-top md:items-top sm:items-top items-top gap-[10px] w-full"
                       >
-                        <span className="bg-gradient-to-b from-[#E72125] to-[#8E1D1D] h-[10px] w-[10px] rounded 2xl:mt-[0] xl:mt-[0] lg:mt-[0] md:mt-[0] sm:mt-[5px] mt-[5px]"></span>
-                        <p className="font-lato font-semibold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text-[18px] 2xl:leading-[38px] xl:leading-[38px] lg:leading-[30px] md:leading-[30px] sm:leading-[25px] leading-[25px] text-white w-[calc(100%-40px)]">
+                        <span className="bg-gradient-to-b from-[#E72125] to-[#8E1D1D] h-[10px] w-[10px] rounded 2xl:mt-[11px] xl:mt-[11px] lg:mt-[11px] md:mt-[11px] sm:mt-[8px] mt-[8px]"></span>
+                        <p className="font-lato font-semibold 2xl:text-[18px] xl:text-[18px] lg:text-[18px] md:text-[18px] sm:text-[18px] text-[18px] 2xl:leading-[30px] xl:leading-[30px] lg:leading-[30px] md:leading-[30px] sm:leading-[25px] leading-[25px] text-white w-[calc(100%-40px)]">
                           {highlight.serviceHighlightTitle}
                         </p>
                       </li>
