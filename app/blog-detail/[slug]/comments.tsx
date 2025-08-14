@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Comments: React.FC<Props> = ({ post }) => {
-  console.log(post, "post");
+  // console.log(post, "post");
 
   return (
     <section className="pt-[80px]">

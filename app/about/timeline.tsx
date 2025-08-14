@@ -10,7 +10,7 @@ const Timeline = () => {
 
   // Debug useEffect to log popup state changes
   useEffect(() => {
-    console.log("Popup state changed:", { isPopupOpen, selectedTimeline });
+    // console.log("Popup state changed:", { isPopupOpen, selectedTimeline });
   }, [isPopupOpen, selectedTimeline]);
 
   // Find the correct flexibleContent block
@@ -36,7 +36,7 @@ const Timeline = () => {
 
   // Function to open popup
   const openPopup = (timelineData: any) => {
-    console.log("Opening popup with data:", timelineData);
+    // console.log("Opening popup with data:", timelineData);
     setSelectedTimeline(timelineData);
     setIsPopupOpen(true);
   };
@@ -54,9 +54,8 @@ const Timeline = () => {
 
     function updateScroll() {
       const slideHeight = slides[0]?.offsetHeight || 0;
-      (scroller as HTMLElement).style.transform = `translateY(-${
-        currentIndex * slideHeight
-      }px)`;
+      (scroller as HTMLElement).style.transform = `translateY(-${currentIndex * slideHeight
+        }px)`;
     }
 
     const scrollUpBtn = document.getElementById("scrollUp");
@@ -103,7 +102,7 @@ const Timeline = () => {
                       readMore =
                         JSON.parse(growth.readMoreLink?.url || "{}") ||
                         readMore;
-                    } catch {}
+                    } catch { }
                     // Alternate row direction as in original layout
                     const isEven = idx % 2 === 0;
                     const rowClass = isEven
@@ -254,9 +253,8 @@ const Timeline = () => {
       {/* Popup Modal */}
       <div
         key={`popup-${selectedTimeline?.growthYear}`}
-        className={`fixed inset-0 bg-black/60 flex items-center justify-center z-[999999] ${
-          isPopupOpen ? "" : "hidden"
-        }`}
+        className={`fixed inset-0 bg-black/60 flex items-center justify-center z-[999999] ${isPopupOpen ? "" : "hidden"
+          }`}
         onClick={(e) => {
           if (e.target === e.currentTarget) {
             closePopup();

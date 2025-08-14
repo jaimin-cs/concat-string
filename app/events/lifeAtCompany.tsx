@@ -44,7 +44,7 @@ export default function LifeAtCompany() {
   const allEvents = lifeAtCompanyData?.events?.nodes || [];
   // Show only first 3 events
   const events = allEvents.slice(0, 3);
-  console.log(allEvents, "allEvents");
+  // console.log(allEvents, "allEvents");
 
   // Check if there are any events to display
   if (!allEvents || allEvents.length === 0) {
