@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import "../css/privacyPolicy.css";
 
-const PrivacyPolicy = () => {
+const privacypolicy = () => {
   useEffect(() => {
     const offset = 436;
     const scrollContainer = document.getElementById("scrollable-content");
@@ -443,4 +443,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default privacypolicy;

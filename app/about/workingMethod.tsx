@@ -137,9 +137,9 @@ const WorkingMethod = () => {
   return (
     <section className="working-method bg-black pt-[170px] 2xl:pb-[187px] xl:pb-[187px] lg:pb-[180px] md:pb-0 sm:pb-0 pb-0">
       <div className="container max-w-[1439px] px-[20px] mx-auto">
-        <div className="relative working-method-wrap flex 2xl:gap-[130px] xl:gap-[130px] lg:gap-[130px] md:gap-[30px] sm:gap-[30px] gap-[30px] items-start 2xl:flex-row xl:flex-row lg:flex-row md:flex-col sm:flex-col flex-col">
-          <svg
-            className="vector-path absolute top-[7%] left-[5%] h-full z-0 pointer-events-none 2xl:block xl:block lg:block md:hidden sm:hidden hidden w-[50%]"
+        <div className="relative working-method-wrap flex 2xl:gap-[130px] xl:gap-[130px] lg:gap-[30px] md:gap-[30px] sm:gap-[30px] gap-[30px] items-start 2xl:flex-row xl:flex-row lg:flex-col md:flex-col sm:flex-col flex-col">
+         <svg
+            className="vector-path absolute top-[7%] left-[5%] h-[923px] z-0 pointer-events-none 2xl:block xl:block lg:hidden md:hidden sm:hidden hidden w-[50%]"
             xmlns="http://www.w3.org/2000/svg"
             width="684"
             height="726"
@@ -154,8 +154,10 @@ const WorkingMethod = () => {
               strokeWidth="3"
               fill="none"
             />
-          </svg>
-          <div className="relative flex flex-col gap-[60px] items-start 2xl:w-[50%] xl:w-[50%] lg:w-[50%] md:w-full sm:w-full w-full">
+          </svg> 
+
+          
+          <div className="relative flex flex-col gap-[60px] items-start 2xl:w-[50%] xl:w-[50%] lg:w-full md:w-full sm:w-full w-full">
             <div className="flex flex-col gap-[16px]">
               <h2 className="h2 text-white">{workingMethodTitle}</h2>
               <p className="font-lato font-normal text-[18px] leading-[28px] text-[#C3C3C3]">
@@ -173,7 +175,7 @@ const WorkingMethod = () => {
           <div
             ref={scrollPanelRef}
             id="scroll-panel"
-            className="relative 2xl:w-[50%] xl:w-[50%] lg:w-[50%] md:w-full sm:w-full w-full max-h-[620px] overflow-y-auto custom-scrollbar"
+            className="relative 2xl:w-[50%] xl:w-[50%] lg:w-full md:w-full sm:w-full w-full max-h-[620px] overflow-y-auto custom-scrollbar"
           >
             <div className="flex flex-col gap-[10px] me-[5px]">
               {workingCycle.map((step: any, idx: number) => (
@@ -196,7 +198,7 @@ const WorkingMethod = () => {
               ))}
             </div>
           </div>
-          <div className="pointer-events-none absolute bottom-0 right-0 2xl:w-[50%] xl:w-[50%] lg:w-[50%] md:w-full sm:w-full w-full h-[60px] bg-gradient-to-t from-black via-black/80 to-transparent z-10"></div>
+          <div className="pointer-events-none absolute bottom-0 right-0 2xl:w-[50%] xl:w-[50%] lg:w-full md:w-full sm:w-full w-full h-[60px] bg-gradient-to-t from-black via-black/80 to-transparent z-10"></div>
         </div>
       </div>
     </section>

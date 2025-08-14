@@ -102,7 +102,9 @@ const Technologies = () => {
                           settings.technologyImage?.node?.altText ||
                           settings.technologyName
                         }
-                        className="w-full float-left"
+                        width={298}
+                        height={298}
+                        className="float-left"
                       />
                     </div>
                   </div>

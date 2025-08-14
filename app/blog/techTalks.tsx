@@ -62,7 +62,7 @@ const TechTalks = () => {
         </div>
         <div className="blog-img border border-[20px] rounded-[30px] border-[#2E0707]">
           <div
-            className="relative bg-cover h-[746px] px-[30px] pt-[30px] pb-[60px] flex items-end"
+            className="relative bg-cover h-[746px] px-[30px] pt-[30px] pb-[60px] flex items-end rounded-[20px]"
             style={{
               backgroundImage: `url(${getFeaturedImageUrl(latestPost)})`,
               backgroundSize: "cover",
@@ -145,7 +145,7 @@ const TechTalks = () => {
                 </div>
                 <a
                   href={`/blog-detail/${latestPost?.slug}`}
-                  className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] hover:opacity-80 transition-opacity"
+                  className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] hover:opacity-80 transition-opacity w-max"
                 >
                   {blogIcons?.readMore}
                   {blogIcons?.readMoreIcon?.node?.sourceUrl && (

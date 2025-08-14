@@ -26,7 +26,7 @@ const MarketOps: React.FC<Props> = ({ project, onLanguagesChange }) => {
       <div className="container max-w-[1432px] px-[20px] mx-auto">
         <div className="flex justify-between items-center 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col gap-[30px]">
           <div className="flex flex-col 2xl:order-1 xl:order-1 lg:order-1 md:order-1 sm:order-2 order-2">
-            <h1 className="font-denton font-bold 2xl:text-[86px] xl:text-[86px] lg:text-[80px] md:text-[75px] sm:text-[70px] text-[60px] leading-[120%] bg-clip-text text-transparent bg-gradient-to-b from-[#E72125] to-[#8E1D1D]">
+            <h1 className="font-denton font-bold 2xl:text-[86px] xl:text-[86px] lg:text-[70px] md:text-[60px] sm:text-[50px] text-[45px] leading-[120%] bg-clip-text text-transparent bg-gradient-to-b from-[#E72125] to-[#8E1D1D]">
               {heading}
             </h1>
             <p className="font-lato font-semibold text-[22px] leading-[34px] text-[#252525]">

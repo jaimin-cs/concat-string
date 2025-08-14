@@ -160,6 +160,11 @@
 
 .blog-content a {
   color: #4ca0ff;
+  text-decoration: underline;
+}
+
+.blog-content a:hover{
+  text-decoration: none;
 }
 
 .blog-content p b {
@@ -171,8 +176,8 @@
   font-family: "Denton Test";
   font-weight: 660;
   font-style: Bold;
-  font-size: 80px;
-  line-height: 90px;
+  font-size: 46px;
+  line-height: 56px;
   margin-bottom: 20px;
 }
 
@@ -181,8 +186,8 @@
   font-family: "Denton Test";
   font-weight: 660;
   font-style: Bold;
-  font-size: 60px;
-  line-height: 70px;
+  font-size: 36px;
+  line-height: 46px;
   margin-bottom: 20px;
 }
 
@@ -191,8 +196,8 @@
   font-family: "Denton Test";
   font-weight: 660;
   font-style: Bold;
-  font-size: 40px;
-  line-height: 50px;
+  font-size: 28px;
+  line-height: 48px;
   margin-bottom: 20px;
 }
 
@@ -201,8 +206,8 @@
   font-family: "Denton Test";
   font-weight: 660;
   font-style: Bold;
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 25px;
+  line-height: 35px;
   margin-bottom: 20px;
 }
 
@@ -211,12 +216,21 @@
   font-family: "Denton Test";
   font-weight: 660;
   font-style: Bold;
-  font-size: 28px;
-  line-height: 36px;
+  font-size: 20px;
+  line-height: 30px;
   margin-bottom: 20px;
 }
 
-.blog-content ol li {
+.blog-content ol {
+  font-family: "Lato", "sans-serif";
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  line-height: 36px;
+  color: #c3c3c3;
+}
+
+.blog-content li {
   font-family: "Lato", "sans-serif";
   font-weight: 400;
   font-style: Regular;
@@ -230,11 +244,16 @@
   padding: 30px;
 }
 
+.blog-content ul {
+  list-style: disc;
+  padding: 30px;
+}
+
 .blog-content p {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 40px; */
   margin-bottom: 20px;
 }
 
@@ -270,26 +289,6 @@
 }
 
 @media (max-width: 992px) {
-  .blog-content h2 {
-    font-size: 60px;
-    line-height: 70px;
-  }
-  .blog-content h3 {
-    font-size: 40px;
-    line-height: 50px;
-  }
-  .blog-content h4 {
-    font-size: 30px;
-    line-height: 40px;
-  }
-  .blog-content h5 {
-    font-size: 25px;
-    line-height: 35px;
-  }
-  .blog-content h6 {
-    font-size: 20px;
-    line-height: 30px;
-  }
   .blog-content p {
     font-size: 18px;
     line-height: 25px;
@@ -309,26 +308,18 @@
     line-height: 50px;
   }
   .blog-content h3 {
-    font-size: 30px;
-    line-height: 40px;
-  }
-  .blog-content h4 {
     font-size: 25px;
     line-height: 35px;
-  }
-  .blog-content h5 {
-    font-size: 20px;
-    line-height: 30px;
-  }
-  .blog-content h6 {
-    font-size: 20px;
-    line-height: 30px;
   }
   .blog-content p {
     font-size: 18px;
     line-height: 30px;
   }
-  .blog-content ol li {
+  .blog-content li {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .blog-content ol {
     font-size: 18px;
     line-height: 30px;
   }

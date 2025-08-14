@@ -26,9 +26,9 @@ const AboutTheAuthor: React.FC<Props> = ({ post }) => {
                 }
                 width="90"
                 height="90"
-                className="h-[90px] w-[90px]"
+                className="h-[90px] w-[90px] rounded-full object-fit object-cover"
               />
-              <div className="flex flex-col gap-[40px]">
+              <div className="flex flex-col gap-[40px] 2xl:max-w-[400px] xl:max-w-[400px] lg:max-w-[400px] md:max-w-full sm:max-w-full max-w-full">
                 <div className="flex flex-col gap-[40px] items-start">
                   <div className="flex flex-col items-start">
                     <h5 className="font-denton font-bold text-center text-white mb-[2px] text-[24px] leading-[32px]">
@@ -65,6 +65,7 @@ const AboutTheAuthor: React.FC<Props> = ({ post }) => {
                           post?.author?.node?.userProfileImage?.discoverSvg
                             ?.node?.altText
                         }
+                        className="w-[15px] h-[20px]"
                       />
                     </a>
                     <ul className="flex items-center 2xl:gap-[40px] xl:gap-[40px] lg:gap-[30px] md:gap-[20px] sm:gap-[20px] gap-[10px] mb-[44px]">
@@ -80,6 +81,7 @@ const AboutTheAuthor: React.FC<Props> = ({ post }) => {
                               <img
                                 src={term?.socialSvg?.node?.sourceUrl}
                                 alt={term?.socialSvg?.node?.altText}
+                                
                               />
                             </a>
                           </li>

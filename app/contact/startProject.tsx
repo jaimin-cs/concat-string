@@ -844,7 +844,11 @@ const MultiStepForm = () => {
               {currentStepData.fields.map((field, index) => (
                 <div
                   key={index}
-                  className="2xl:w-[calc(50%-25px)] xl:w-[calc(50%-25px)] lg:w-[calc(50%-25px)] md:w-[calc(50%-25px)] sm:w-full w-full"
+                  className={`${
+                    field.name === "message" 
+                      ? "w-full" 
+                      : "2xl:w-[calc(50%-25px)] xl:w-[calc(50%-25px)] lg:w-[calc(50%-25px)] md:w-[calc(50%-25px)] sm:w-full w-full"
+                  }`}
                 >
                   {renderField(field)}
                 </div>
@@ -952,7 +956,7 @@ const MultiStepForm = () => {
             </p>
           </div>
 
-          <div className="bg-[url('/images/contact/box-bg.png')] 2xl:px-[130px] xl:px-[130px] lg:px-[100px] md:px-[80px] sm:px-[50px] px-[30px] rounded-[34px] 2xl:h-[830px] xl:h-[830px] lg:h-[830px] md:h-full sm:h-full h-full 2xl:pb-[50px] xl:pb-[50px] lg:pb-[50px] md:pb-[50px] sm:pb-[60px] pb-[50px] 2xl:pt-[240px] xl:pt-[240px] lg:pt-[200px] md:pt-[150px] sm:pt-[100px] pt-[80px] w-full relative bg-cover bg-bottom">
+          <div className="bg-[url('/images/contact/box-bg.png')] 2xl:px-[130px] xl:px-[130px] lg:px-[100px] md:px-[80px] sm:px-[50px] px-[30px] rounded-[34px] 2xl:h-[900px] xl:h-[900px] lg:h-[900px] md:h-full sm:h-full h-full 2xl:pb-[50px] xl:pb-[50px] lg:pb-[50px] md:pb-[50px] sm:pb-[60px] pb-[50px] 2xl:pt-[240px] xl:pt-[240px] lg:pt-[200px] md:pt-[150px] sm:pt-[100px] pt-[80px] w-full relative bg-cover bg-bottom">
             <div className="flex flex-col items-center justify-between h-full">
               <div className="flex flex-col items-center justify-center w-full">
                 <h2 className="font-denton font-bold 2xl:text-[92px] xl:text-[92px] lg:text-[70px] md:text-[50px] sm:text-[40px] text-[30px] 2xl:leading-[122px] xl:leading-[122px] lg:leading-[100px] md:leading-[60px] sm:leading-[50px] leading-[40px] text-center text-white 2xl:mb-[60px] xl:mb-[60px] lg:mb-[50px] md:mb-[40px] sm:mb-[30px] mb-[20px]">

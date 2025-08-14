@@ -25,13 +25,13 @@ const ServiceHighlights = () => {
   };
   return (
     <section className="flex flex-col gap-[60px] items-center justify-center 2xl:pt-[100px] xl:pt-[100px] lg:pt-[80px] md:pt-[80px] sm:pt-[60px] pt-[50px]">
-      <div className="max-w-[1432px] px-4 mx-auto  w-full">
+      <div className="container max-w-[1400px] px-[20px] mx-auto w-full">
         <div className="flex flex-col 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[50px] sm:gap-[40px] gap-[30px] items-center justify-center">
           <h2 className="h2 text-white text-center">
             {servicesData?.discoverServicesTitle ||
               "Discover our services that are vital for us:"}
           </h2>
-          <div className="flex flex-col 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[50px] sm:gap-[40px] gap-[30px]">
+          <div className="flex flex-col 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[50px] sm:gap-[40px] gap-[30px]  max-w-[1400px] px-[20px] mx-auto w-full">
             {services.map((service, index) => {
               const settings = service.technologiesSettings;
               const isEven = index % 2 === 0;
@@ -57,7 +57,7 @@ const ServiceHighlights = () => {
                         <div className="flex flex-row flex-wrap gap-[20px] items-center">
                           {Array.isArray(webServicesList) &&
                             webServicesList.length > 0 && (
-                              <div className="relative w-[330px]">
+                              <div className="relative 2xl:w-[330px] xl:w-[330px] lg:w-[330px] md:w-[330px] sm:w-full w-full">
                                 <button
                                   type="button"
                                   onClick={toggleDropdown}

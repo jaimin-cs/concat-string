@@ -1538,7 +1538,7 @@ export const GET_TEAM_LISTING = gql`
           ... on FlexibleContentFlexibleContentTeamListingLayout {
             teamGroup {
               teamGroupTitle
-              teamMember {
+              teamMember(first: 50) {
                 nodes {
                   ... on Team {
                     teamSetting {

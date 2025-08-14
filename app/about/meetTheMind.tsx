@@ -51,7 +51,7 @@ const MeetTheMind = () => {
               {teamMember?.nodes?.map((member: any, idx: number) => (
                 <div
                   key={idx}
-                  className={`group relative h-[430px] rounded-xl overflow-hidden transition-all duration-500 py-[20px] px-[10px] flex items-end cursor-pointer ${
+                  className={`group relative 2xl:h-[430px] xl:h-[430px] lg:h-[430px] md:h-[430px] sm:h-full h-full 2xl:aspect-auto xl:aspect-auto lg:aspect-auto md:aspect-auto sm:aspect-square aspect-square rounded-xl overflow-hidden transition-all duration-500 py-[20px] px-[10px] flex items-end cursor-pointer ${
                     idx % 2 === 1
                       ? "2xl:translate-y-[100px] xl:translate-y-[100px] lg:translate-y-0 md:translate-y-0 sm:translate-y-0 translate-y-0"
                       : "translate-y-0"
@@ -208,7 +208,7 @@ const MeetTheMind = () => {
                             <a
                               href={selectedMember.teamSetting.socialLink.url}
                               target="_blank"
-                              className="w-[20px] h-[20px] bg-white rounded-full flex items-center justify-center hover:bg-[#E72125] transition-colors duration-300"
+                              className="group w-[25px] h-[25px] flex items-center justify-center"
                             >
                               {selectedMember.teamSetting.socialSvg && (
                                 <img
@@ -220,7 +220,7 @@ const MeetTheMind = () => {
                                     selectedMember.teamSetting.socialSvg.node
                                       .altText
                                   }
-                                  className="w-[12px] h-[12px]"
+                                  className="w-[20px] h-[20px] group-hover:scale-[1.1]"
                                 />
                               )}
                             </a>

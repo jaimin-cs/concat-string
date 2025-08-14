@@ -53,13 +53,13 @@ const Culture = () => {
                 ${cardClassNames[idx] || "w-full"} 
                 relative 2xl:h-[276px] xl:h-[260px] lg:h-[250px] md:h-[230px] sm:h-[200px] h-[200px] group overflow-hidden transition-all duration-500 ease-in-out hover:bg-white hover:bg-opacity-[16%] hover:border-white hover:border-opacity-[16%]`}
             >
-              <h3 className="h4 text-white font-bold leading-[100%] pb-[14px] max-w-[328px]">
+              <h3 className="text-[20px] sm:text-[20px] md:text-[20px] lg:text-[25px] xl:text-[30px] 2xl:text-[36px] text-white font-bold 2xl:leading-[48px] xl:leading-[40px] lg:leading-[35px] md:leading-[30px] sm:leading-[30px] leading-[30px] pb-[14px] max-w-[328px] font-denton">
                 {perk.title}
               </h3>
               <p className="font-lato text-[16px] font-medium text-white leading-[26px] opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100">
                 {perk.description}
               </p>
-              <div className="absolute bottom-[50px] left-1/2 -translate-x-1/2 group-hover:bottom-[20px] group-hover:left-auto group-hover:right-[30px] group-hover:translate-x-0 transition-all duration-500 ease-in-out max-w-max">
+              <div className="absolute bottom-[50px] left-1/2 -translate-x-1/2 group-hover:bottom-[6px] group-hover:left-auto group-hover:right-[10px] group-hover:translate-x-0 transition-all duration-500 ease-in-out max-w-max">
                 <img
                   src={perk.gif?.node?.sourceUrl}
                   alt={perk.gif?.node?.altText || perk.title}

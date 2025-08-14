@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from "react";
 import "../css/termsAndConditions.css";
-const TermsAndConditions = () => {
+const termsandconditions = () => {
   
  useEffect(() => {
     const offset = 436;
@@ -313,5 +313,5 @@ const TermsAndConditions = () => {
     );
   };
   
-  export default TermsAndConditions;
+  export default termsandconditions;
   

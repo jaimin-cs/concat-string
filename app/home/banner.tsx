@@ -81,7 +81,7 @@ const Banner = () => {
 
           {link && (
             <a href={link.url} className="inline-block group">
-              <div className="btn-primary-outline ml-[20px]">
+              <div className="btn-primary-outline">
                 <div className="btn-primary">{link.title}</div>
               </div>
             </a>

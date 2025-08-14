@@ -195,7 +195,7 @@ const Faq = () => {
       const content = item.querySelector(".faq-content");
       const icon = item.querySelector(".faq-icon svg");
 
-      head?.addEventListener("click", () => {
+      item?.addEventListener("click", () => {
         const isOpen = item.classList.contains("active");
         faqItems.forEach((faq) => {
           const c = faq.querySelector(".faq-content");
@@ -239,11 +239,11 @@ const Faq = () => {
             {faqNodes.map((faq: any, idx: number) => (
               <div
                 key={faq.title + idx}
-                className="faq-item py-[24px] 2xl:px-[30px] xl:px-[30px] lg:px-[25px] md:px-[25px] sm:px-[25px] px-[20px] overflow-hidden border border-[#2F2F2F] rounded-[12px] flex flex-col items-start transition-all duration-300"
+                className="faq-item py-[24px] 2xl:px-[30px] xl:px-[30px] lg:px-[25px] md:px-[25px] sm:px-[25px] px-[20px] overflow-hidden border border-[#2F2F2F] rounded-[12px] flex flex-col items-start transition-all duration-300 cursor-pointer"
                 style={{ borderImageSlice: 1 }}
               >
-                <div className="faq-head flex justify-between items-center w-full">
-                  <h4 className="font-denton text-white font-semibold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text-[18px] 2xl:leading-[34px] xl:leading-[34px] lg:leading-[30px] md:leading-[30px] sm:leading-[25px] leading-[25px] cursor-pointer">
+                <div className="faq-head flex justify-between items-center w-full cursor-pointer gap-[5px]">
+                  <h4 className="font-denton text-white font-semibold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text-[18px] 2xl:leading-[34px] xl:leading-[34px] lg:leading-[30px] md:leading-[30px] sm:leading-[25px] leading-[25px]">
                     {faq.title}
                   </h4>
                   <span className="faq-icon cursor-pointer">

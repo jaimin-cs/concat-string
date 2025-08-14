@@ -74,7 +74,7 @@ const StartBuilding: React.FC<Props> = ({ data }) => {
                 )}
               </ul>
             </div>
-            <div className="2xl:ps-[10px] xl:ps-[40px] lg:ps-[40px] md:ps-0 sm:ps-0 pe-0 2xl:py-[30px] xl:py-[30px] lg:py-[30px] md:py-0 sm:py-0 py-0 flex 2xl:flex-col xl:flex-col lg:flex-col md:flex-row sm:flex-col flex-col gap-[30px] 2xl:items-start xl:items-start lg:items-start md:items-center sm:items-start items-start 2xl:w-[calc(100%-960px)] xl:w-[calc(100%-960px)] lg:w-full md:w-full sm:w-full w-full">
+            <div className="2xl:ps-[10px] xl:ps-[10px] lg:ps-[10px] md:ps-0 sm:ps-0 pe-0 2xl:py-[30px] xl:py-[30px] lg:py-[30px] md:py-0 sm:py-0 py-0 flex 2xl:flex-col xl:flex-col lg:flex-col md:flex-row sm:flex-col flex-col gap-[30px] 2xl:items-start xl:items-start lg:items-start md:items-center sm:items-start items-start 2xl:w-[calc(100%-960px)] xl:w-[calc(100%-960px)] lg:w-full md:w-full sm:w-full w-full">
               <ul className="flex 2xl:flex-col xl:flex-col lg:flex-col md:flex-row sm:flex-col flex-col gap-[20px] items-start">
                 <li className="flex items-center 2xl:gap-[30px] xl:gap-[30px] lg:gap-[30px] md:gap-[20px] sm:gap-[20px] gap-[20px]">
                   <img

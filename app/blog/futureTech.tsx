@@ -224,7 +224,7 @@ const FutureTech = () => {
                     </div>
                     <a
                       href={`/blog-detail/${post.slug}`}
-                      className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] hover:opacity-80 transition-opacity"
+                      className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] hover:opacity-80 transition-opacity w-max"
                     >
                       {blogIcons?.readMore}
                       {blogIcons?.readMoreIcon?.node?.sourceUrl && (

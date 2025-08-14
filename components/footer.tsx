@@ -186,7 +186,7 @@ const Footer = () => {
                   <li key={idx}>
                     <a
                       href={item.pathLink.url}
-                      className="font-denton font-bold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text:[18px] leading-[32px] text-white hover:underline"
+                      className="font-denton font-bold 2xl:text-[22px] xl:text-[22px] lg:text-[20px] md:text-[20px] sm:text-[18px] text:[18px] leading-[32px] text-white hover:opacity-80 transition-opacity"
                     >
                       {item.pathLink.title}
                     </a>
@@ -209,7 +209,7 @@ const Footer = () => {
                   ) => (
                     <li key={idx} className="flex items-center gap-[10px]">
                       <span className="bg-[linear-gradient(312.85deg,_#2C3894_11.22%,_#54A3DA_86.03%)] h-[6px] w-[6px] rounded-full"></span>
-                      <p className="font-denton font-medium 2xl:text-[20px] xl:text-[20px] lg:text-[18px] md:text-[18px] sm:text-[18px] text:[18px] leading-[32px] text-white hover:underline">
+                      <p className="font-denton font-medium 2xl:text-[20px] xl:text-[20px] lg:text-[18px] md:text-[18px] sm:text-[18px] text:[18px] leading-[32px] text-white hover:opacity-80 transition-opacity">
                         <a href={`/services/${service?.slug}`}>
                           {service.title}
                         </a>
@@ -366,7 +366,7 @@ const Footer = () => {
                   <li>
                     <a
                       href={footer?.termsLink?.url}
-                      className="font-lato font-normal text-[18px] leading-[32px] text-white hover:underline"
+                      className="font-lato font-normal text-[18px] leading-[32px] text-white hover:opacity-80 transition-opacity"
                     >
                       {footer?.termsLink?.title}
                     </a>
@@ -379,7 +379,7 @@ const Footer = () => {
                   <li>
                     <a
                       href={footer?.privacyLink?.url}
-                      className="font-lato font-normal text-[18px] leading-[32px] text-white hover:underline"
+                      className="font-lato font-normal text-[18px] leading-[32px] text-white hover:opacity-80 transition-opacity"
                     >
                       {footer?.privacyLink?.title}
                     </a>

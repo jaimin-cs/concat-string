@@ -72,7 +72,7 @@ const TechTalks = () => {
                       src={getFeaturedImageUrl(post)}
                       width="399"
                       height="270"
-                      className="2xl:rounded-[16px] xl:rounded-[16px] lg:rounded-[16px] md:rounded-[15px] sm:rounded-[10px] rounded-[10px] mb-[16px] w-full"
+                      className="2xl:rounded-[16px] xl:rounded-[16px] lg:rounded-[16px] md:rounded-[15px] sm:rounded-[10px] rounded-[10px] mb-[16px] w-full h-[270px] object-fit object-cover"
                       alt={post?.title}
                     />
                     <div className="flex flex-row flex-wrap justify-between gap-[10px] mb-[20px]">

@@ -42,8 +42,8 @@ const Faq: React.FC<Props> = ({ data }) => {
         }
       };
       if (head) {
-        head.addEventListener("click", handleClick);
-        listeners.push(() => head.removeEventListener("click", handleClick));
+        item.addEventListener("click", handleClick);
+        listeners.push(() => item.removeEventListener("click", handleClick));
       }
     });
     return () => {
@@ -63,7 +63,7 @@ const Faq: React.FC<Props> = ({ data }) => {
                 className="faq-wrapper rounded-[12px] border border-[#2F2F2F] transition-all duration-300"
               >
                 <div
-                  className="faq-item py-[24px] 2xl:px-[30px] xl:px-[30px] lg:px-[25px] md:px-[25px] sm:px-[25px] px-[20px] overflow-hidden rounded-[12px] flex flex-col items-start transition-all duration-300 bg-black"
+                  className="faq-item py-[24px] 2xl:px-[30px] xl:px-[30px] lg:px-[25px] md:px-[25px] sm:px-[25px] px-[20px] overflow-hidden rounded-[12px] flex flex-col items-start transition-all duration-300 bg-black cursor-pointer"
                   style={{ borderImageSlice: 1 }}
                 >
                   <div className="faq-head flex justify-between items-center w-full cursor-pointer">

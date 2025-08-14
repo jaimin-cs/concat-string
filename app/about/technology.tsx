@@ -23,7 +23,7 @@ const Technology = () => {
           <h2 className="h2 text-black">{techData?.aboutTechnologiesTitle}</h2>
           <div className="tec-wrap flex items-center justify-between 2xl:gap-[60px] xl:gap-[60px] lg:gap-[60px] md:gap-[40px] sm:gap-[30px] gap-[25px] 2xl:flex-row xl:flex-row lg:flex-col md:flex-col sm:flex-col flex-col w-full">
             {/* Tab Buttons */}
-            <div className="tab-buttons grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-[20px] 2xl:w-[calc(100%-557px)] xl:w-[calc(100%-557px)] lg:w-full md:w-full sm:w-full w-full ">
+            <div className="tab-buttons grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-1 sm:grid-cols-1 grid-cols-1 gap-[20px] 2xl:w-[calc(100%-557px)] xl:w-[calc(100%-557px)] lg:w-full md:w-full sm:w-full w-full ">
               {technologies?.map((tech: any, index: any) => (
                 <button
                   key={index}

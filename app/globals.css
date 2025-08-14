@@ -275,3 +275,42 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #ffffff !important; /* keep white text */
   transition: background-color 5000s ease-in-out 0s; /* stop flashing */
 }
+
+
+/* Faq content */
+
+.faq-content ul{
+  list-style-type: disc;
+  padding: 0 0 0 30px;
+}
+
+.faq-content ol{
+  list-style: decimal;
+  padding: 0 0 0 10px;
+}
+
+.faq-content ol ol{
+  list-style: lower-roman;
+  padding: 0 0 0 10px;
+}
+
+/* Team slider */
+
+.team-slider .slick-slide > div {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.team-box {
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.team-box > p:nth-child(2) {
+  flex-grow: 1;
+}
+
+.team-slider .slick-slide {
+  height: auto !important;
+}

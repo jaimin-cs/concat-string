@@ -122,7 +122,7 @@ const Timeline = () => {
                     return (
                       <div
                         key={growth.growthYear}
-                        className={`timeline-slide flex ${rowClass} items-start 2xl:gap-[60px] xl:gap-[60px] lg:gap-[60px] md:gap-[30px] sm:gap-[30px] gap-[20px] 2xl:h-[400px] xl:h-[400px] lg:h-[400px] md:h-[400px] sm:h-[400px] h-[300px]`}
+                        className={`timeline-slide flex ${rowClass} items-start 2xl:gap-[60px] xl:gap-[60px] lg:gap-[60px] md:gap-[30px] sm:gap-[30px] gap-[20px] 2xl:h-[400px] xl:h-[400px] lg:h-[400px] md:h-[400px] sm:h-[400px] h-[450px]`}
                         data-color={color}
                       >
                         <div className="2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-1/2 sm:w-auto w-auto pt-[40px]">

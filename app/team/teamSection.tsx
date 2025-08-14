@@ -293,7 +293,7 @@ const TeamSection: React.FC = () => {
                             <a
                               href={selectedMember.teamSetting.socialLink.url}
                               target="_blank"
-                              className="w-[20px] h-[20px] bg-white rounded-full flex items-center justify-center hover:bg-[#E72125] transition-colors duration-300"
+                              className="group w-[25px] h-[25px] flex items-center justify-center"
                             >
                               {selectedMember.teamSetting.socialSvg && (
                                 <img
@@ -305,7 +305,7 @@ const TeamSection: React.FC = () => {
                                     selectedMember.teamSetting.socialSvg.node
                                       .altText
                                   }
-                                  className="w-[12px] h-[12px]"
+                                  className="w-[20px] h-[20px] group-hover:scale-[1.1]"
                                 />
                               )}
                             </a>

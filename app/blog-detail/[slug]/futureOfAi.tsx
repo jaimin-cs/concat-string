@@ -51,8 +51,17 @@ const FutureOfAi: React.FC<Props> = ({ post }) => {
     <section className="pt-[254px]">
       <div className="container max-w-[1400px] px-[20px] mx-auto">
         <div className="flex flex-col 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[40px] sm:gap-[30px] gap-[30px]">
-          <div className="flex items-start 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[40px] sm:gap-[30px] gap-[30px] 2xl:flex-row xl:flex-row lg:flex-row md:flex-col sm:flex-col flex-col">
-            <div className="flex flex-col items-start 2xl:w-[50%] xl:w-[50%] lg:w-[50%] md:w-full sm:w-full w-full">
+          <div className="flex items-start 2xl:gap-[60px] xl:gap-[60px] lg:gap-[50px] md:gap-[40px] sm:gap-[30px] gap-[30px] flex-col">
+          <div className="blog-img w-full">
+              <img
+                src={post?.featuredImage?.node?.sourceUrl}
+                alt={post?.featuredImage?.node?.altText}
+                width="670"
+                height="400"
+                className="w-full"
+              />
+            </div>
+            <div className="flex flex-col items-start w-full">
               <h1 className="font-denton font-bold 2xl:text-[80px] xl:text-[80px] lg:text-[70px] md:text-[60px] sm:text-[50px] text-[40px] 2xl:leading-[106px] xl:leading-[106px] lg:leading-[90px] md:leading-[70px] sm:leading-[60px] leading-[50px] text-white mb-[16px]">
                 {post?.title}
               </h1>
@@ -77,28 +86,21 @@ const FutureOfAi: React.FC<Props> = ({ post }) => {
                   {formatDate(post?.date)}
                 </span>
               </div>
-              <p className="font-lato font-normal 2xl:text-[30px] xl:text-[30px] lg:text-[20px] md:text-[20px] sm:text-[20px] text-[18px] 2xl:leading-[50px] xl:leading-[40px] lg:leading-[30px] md:leading-[20px] sm:leading-[30px] leading-[30px] text-white">
+              <p className="font-lato font-normal 2xl:text-[30px] xl:text-[30px] lg:text-[20px] md:text-[20px] sm:text-[20px] text-[18px] 2xl:leading-[50px] xl:leading-[40px] lg:leading-[30px] md:leading-[30px] sm:leading-[30px] leading-[30px] text-white">
                 {post?.blogDetail?.blogDetailShotDesc}
               </p>
             </div>
-            <div className="blog-img 2xl:w-[50%] xl:w-[50%] lg:w-[50%] md:w-full sm:w-full w-full">
-              <img
-                src={post?.featuredImage?.node?.sourceUrl}
-                alt={post?.featuredImage?.node?.altText}
-                width="670"
-                height="400"
-              />
-            </div>
+            
           </div>
           <div className="flex 2xl:flex-row xl:flex-row lg:flex-col md:flex-col sm:flex-col flex-col 2xl:gap-[40px] xl:gap-[40px] lg:gap-[30px] md:gap-[30px] sm:gap-[20px] gap-[20px] justify-between">
-            <div className="flex flex-col items-start 2xl:gap-[30px] xl:gap-[30px] lg:gap-[20px] md:gap-[20px] sm:gap-[20px] gap-[20px] 2xl:max-w-[970px] xl:max-w-[970px] lg:max-w-full md:max-w-full sm:max-w-full max-w-full blog-content">
+            <div className="flex flex-col items-start 2xl:gap-[30px] xl:gap-[30px] lg:gap-[20px] md:gap-[20px] sm:gap-[20px] gap-[20px] 2xl:max-w-[970px] xl:max-w-[800px] lg:max-w-full md:max-w-full sm:max-w-full max-w-full blog-content">
               <div
                 dangerouslySetInnerHTML={{
                   __html: post?.blogDetail?.blogDetailContent || "",
                 }}
               />
             </div>
-            <div className="bg-white/10 rounded-[16px] 2xl:py-[20px] xl:py-[20px] lg:py-[20px] sm:py-[20px] py-[20px] px-[26px] 2xl:max-w-[330px] xl:max-w-[330px] lg:max-w-full md:max-w-full sm:max-w-full max-w-full max-h-max">
+            <div className="bg-white/10 rounded-[16px] 2xl:py-[20px] xl:py-[20px] lg:py-[20px] sm:py-[20px] py-[20px] px-[26px] 2xl:max-w-[330px] xl:max-w-[500px] lg:max-w-full md:max-w-full sm:max-w-full max-w-full max-h-max 2xl:sticky xl:sticky lg:static md:static sm:static static 2xl:top-[200px] xl:top-[200px] lg:top-0 md:top-0 sm:top-0 top-0">
               <div className="flex flex-col gap-[24px] items-start justify-start">
                 <h4 className="font-denton font-bold text-[24px] leading-[100%] text-white text-left ">
                   {post?.blogDetail?.tableOfContent}
