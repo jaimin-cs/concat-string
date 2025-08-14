@@ -60,7 +60,7 @@ const TechTalks = () => {
             {blogIcons?.description}
           </p>
         </div>
-        <div className="blog-img border border-[20px] rounded-[30px] border-[#2E0707]">
+        <div className="blog-img bg-[#2E0707] border border-[20px] rounded-[30px] border-[#2E0707]">
           <div
             className="relative bg-cover h-[746px] px-[30px] pt-[30px] pb-[60px] flex items-end rounded-[20px]"
             style={{
