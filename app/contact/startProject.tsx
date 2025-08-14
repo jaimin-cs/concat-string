@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useQuery } from "@apollo/client";
 import { GET_CONTACT_US } from "@/lib/queries";
+import { uploadToCloudinary } from "@/lib/cloudinary-client";
+
 // Type definitions
 interface FormField {
   name: string;
@@ -332,160 +334,155 @@ const MultiStepForm = () => {
       setCurrentStep((prev) => prev - 1);
     }
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
-    // console.log('Form submitted:', formData);
-    // console.log('Form type:', formType);
-    // return false
-    if (!formType) return false;
     e.preventDefault();
     setIsSubmitting(true);
-    let fields = {};
+    let fields: any = {};
     let formId = 0;
-    if (formType === "dropLine") {
-      formId = 1841;
-      fields = {
-        6: {
-          name: "How can we help?",
-          value: formData.enquiryType,
-          id: "6",
-          type: "radio",
-        },
-        1: {
-          name: "Full Name",
-          value: formData.fullName,
-          id: 1,
-          type: "name",
-        },
-        2: {
-          name: "Email",
-          value: formData.email,
-          id: 2,
-          type: "textarea",
-        },
-        3: {
-          name: "Phone",
-          value: formData.phone || "",
-          id: 3,
-          type: "phone",
-        },
-        4: {
-          name: "Enquiry",
-          value: formData.enquiryType,
-          id: 4,
-          type: "select",
-        },
-        5: {
-          name: "Message",
-          value: formData.message,
-          id: 5,
-          type: "seletextareact",
-        },
-      };
-    } else if (formType === "startProject") {
-      formId = 1838;
-      fields = {
-        1: {
-          name: "How can we help?",
-          value: "Start a Project",
-          id: 1,
-          type: "radio",
-        },
-        5: {
-          name: "Name",
-          value: formData.fullName,
-          id: 5,
-          type: "name",
-        },
-        6: {
-          name: "Email",
-          value: formData.email,
-          id: 6,
-          type: "email",
-        },
-        7: {
-          name: "Phone",
-          value: formData.phone || "",
-          id: 7,
-          type: "phone",
-        },
-        8: {
-          name: "Agency Name",
-          value: formData.agencyName,
-          id: 8,
-          type: "text",
-        },
-        10: {
-          name: "Project Title",
-          value: formData.projectTitle,
-          id: 10,
-          type: "textarea",
-        },
-        11: {
-          name: "Project Brief",
-          value: formData.projectDescription,
-          id: 11,
-          type: "textarea",
-        },
-        13: {
-          name: "What type of project?",
-          value: formData.projectType.join(", "),
-          id: 13,
-          type: "checkbox",
-        },
-        15: {
-          name: "What is the budget for the project?",
-          value: formData.budget,
-          id: 15,
-          type: "radio",
-        },
-        16: {
-          name: "Project Timeline",
-          value: formData.timeline,
-          id: 16,
-          type: "checkbox",
-        },
-        19: {
-          name: "Attatchment",
-          value: "",
-          id: 19,
-          type: "file-upload",
-        },
-        21: {
-          name: "How did you hear about us?",
-          value: formData.referral,
-          id: 21,
-          type: "radio",
-        },
-        23: {
-          name: "Additional Notes / Questions",
-          value: formData.additionalNotes || "",
-          id: 23,
-          type: "radio",
-        },
-      };
-    }
-
-    const payload = {
-      form_id: formId,
-      fields,
-    };
 
     try {
+      let uploadedFileUrl: string | null = null;
+
+      // Step 1: If file exists, upload to Cloudinary
+      if (formData.attachments && formData.attachments[0]) {
+        try {
+          uploadedFileUrl = await uploadToCloudinary(
+            formData.attachments[0],
+            "contact"
+          );
+          console.log("File uploaded to Cloudinary:", uploadedFileUrl);
+        } catch (uploadError) {
+          console.error("Cloudinary upload failed:", uploadError);
+          setIsSubmitting(false);
+          return;
+        }
+      }
+
+      // Step 2: Build fields after file upload
+      if (formType === "dropLine") {
+        formId = 1841;
+        fields = {
+          6: {
+            name: "How can we help?",
+            value: formData.enquiryType,
+            id: "6",
+            type: "radio",
+          },
+          1: {
+            name: "Full Name",
+            value: formData.fullName,
+            id: 1,
+            type: "name",
+          },
+          2: { name: "Email", value: formData.email, id: 2, type: "textarea" },
+          3: {
+            name: "Phone",
+            value: formData.phone || "",
+            id: 3,
+            type: "phone",
+          },
+          4: {
+            name: "Enquiry",
+            value: formData.enquiryType,
+            id: 4,
+            type: "select",
+          },
+          5: {
+            name: "Message",
+            value: formData.message,
+            id: 5,
+            type: "textarea",
+          },
+        };
+      } else if (formType === "startProject") {
+        formId = 1838;
+        fields = {
+          1: {
+            name: "How can we help?",
+            value: "Start a Project",
+            id: 1,
+            type: "radio",
+          },
+          5: { name: "Name", value: formData.fullName, id: 5, type: "name" },
+          6: { name: "Email", value: formData.email, id: 6, type: "email" },
+          7: {
+            name: "Phone",
+            value: formData.phone || "",
+            id: 7,
+            type: "phone",
+          },
+          8: {
+            name: "Agency Name",
+            value: formData.agencyName,
+            id: 8,
+            type: "text",
+          },
+          10: {
+            name: "Project Title",
+            value: formData.projectTitle,
+            id: 10,
+            type: "textarea",
+          },
+          11: {
+            name: "Project Brief",
+            value: formData.projectDescription,
+            id: 11,
+            type: "textarea",
+          },
+          13: {
+            name: "What type of project?",
+            value: formData.projectType.join(", "),
+            id: 13,
+            type: "checkbox",
+          },
+          15: {
+            name: "What is the budget for the project?",
+            value: formData.budget,
+            id: 15,
+            type: "radio",
+          },
+          16: {
+            name: "Project Timeline",
+            value: formData.timeline,
+            id: 16,
+            type: "checkbox",
+          },
+          19: uploadedFileUrl
+            ? {
+                name: "Attachment",
+                value: formData.attachments[0].name,
+                id: 19,
+                type: "file-upload",
+                file_url: uploadedFileUrl,
+              }
+            : { name: "Attachment", value: "", id: 19, type: "file-upload" },
+          21: {
+            name: "How did you hear about us?",
+            value: formData.referral,
+            id: 21,
+            type: "radio",
+          },
+          23: {
+            name: "Additional Notes / Questions",
+            value: formData.additionalNotes || "",
+            id: 23,
+            type: "radio",
+          },
+        };
+      }
+
+      // Step 3: Send to backend
+      const payload = { form_id: formId, fields };
       await axios.post(
         `${process.env.NEXT_PUBLIC_WORDPRESS_ENDPOINT_URL}/wp-json/custom/v1/submit-form`,
         payload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          timeout: 10000, // 10 second timeout
-        }
+        { headers: { "Content-Type": "application/json" }, timeout: 10000 }
       );
-    } catch (error: any) {
+
+      setIsSubmitted(true);
+    } catch (error) {
       console.error("Form submission error:", error);
     } finally {
-      setIsSubmitted(true);
       setIsSubmitting(false);
     }
   };
@@ -734,6 +731,11 @@ const MultiStepForm = () => {
               onChange={(e) => handleInputChange("attachments", e.target.files)}
               accept=".pdf,.doc,.docx,.txt"
             />
+            {formData.attachments && formData.attachments.length > 0 && (
+              <p className="text-sm text-gray-600 mt-1">
+                {formData.attachments[0].name}
+              </p>
+            )}
           </label>
         </div>
       </div>

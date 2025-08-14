@@ -132,11 +132,10 @@ const StrategySquad = () => {
                 {group.teamMember?.nodes?.map((member: TeamMember, memberIndex: number) => (
                   <div
                     key={memberIndex}
-                    className={`group relative aspect-[447/587] rounded-xl overflow-hidden transition-all duration-500 py-[15px] sm:py-[15px] md:py-[20px] px-[15px] sm:px-[15px] md:px-[15px] flex items-end cursor-pointer ${
-                      memberIndex % 2 === 1
+                    className={`group relative aspect-[447/587] rounded-xl overflow-hidden transition-all duration-500 py-[15px] sm:py-[15px] md:py-[20px] px-[15px] sm:px-[15px] md:px-[15px] flex items-end cursor-pointer ${memberIndex % 2 === 1
                         ? "2xl:translate-y-[100px] xl:translate-y-[100px] lg:translate-y-0 md:translate-y-0 sm:translate-y-0 translate-y-0"
                         : "translate-y-0"
-                    }`}
+                      }`}
                     onClick={() => handleMemberClick(member)}
                   >
                     {/* Static Background Image */}
@@ -265,13 +264,13 @@ const StrategySquad = () => {
                             href={selectedMember.teamSetting.socialLink.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-[20px] h-[20px] bg-white rounded-full flex items-center justify-center hover:bg-[#E72125] transition-colors duration-300"
+                            className="group w-[25px] h-[25px] flex items-center justify-center"
                           >
                             {selectedMember.teamSetting.socialSvg && (
                               <img
                                 src={selectedMember.teamSetting.socialSvg.node.sourceUrl}
                                 alt={selectedMember.teamSetting.socialSvg.node.altText}
-                                className="w-3 h-3"
+                                className="w-[20px] h-[20px] group-hover:scale-[1.1]"
                               />
                             )}
                           </a>
@@ -297,7 +296,7 @@ const StrategySquad = () => {
                         <h3 className="font-denton font-medium text-[40px] leading-[1.325] text-white">
                           {selectedMember.teamSetting.profileSkillTitle}
                         </h3>
-                        
+
                         {selectedMember.teamSetting.skillsDetail.map((skill, index) => (
                           <div key={index} className="relative">
                             <div className="bg-[#D9D9D9] bg-opacity-50 border border-white rounded-[20px] h-[46px] relative overflow-hidden">
