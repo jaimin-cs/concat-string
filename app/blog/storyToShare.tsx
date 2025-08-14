@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_BLOG_SETTINGS } from "@/lib/queries";
+import { uploadToCloudinary } from "@/lib/cloudinary-client";
 
 const StoryToShare = () => {
   const { loading, error, data } = useQuery(GET_BLOG_SETTINGS);
@@ -214,15 +215,17 @@ const StoryToShare = () => {
     setSubmitMessage("");
 
     try {
-      // Convert file to base64 if uploaded
-      let fileData = null;
+      // Upload file to Cloudinary if uploaded
+      let cloudinaryUrl: string | null = null;
       if (form.uploadDocument) {
-        fileData = await new Promise<string>((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = () => resolve(reader.result as string);
-          reader.onerror = reject;
-          reader.readAsDataURL(form.uploadDocument!);
-        });
+        try {
+          cloudinaryUrl = await uploadToCloudinary(form.uploadDocument, "blog");
+          console.log("File uploaded to Cloudinary:", cloudinaryUrl);
+        } catch (uploadError) {
+          console.error("Cloudinary upload failed:", uploadError);
+          setSubmitMessage("Error uploading file. Please try again.");
+          return;
+        }
       }
 
       // Build the fields object as per WPForms API (same structure as FAQ form)
@@ -266,13 +269,13 @@ const StoryToShare = () => {
       };
 
       // Add file information if uploaded
-      if (form.uploadDocument && fileData) {
+      if (form.uploadDocument && cloudinaryUrl) {
         fields[5] = {
           name: "Upload Document",
           value: form.uploadDocument.name || "Document uploaded",
           id: 5,
           type: "file",
-          file_data: fileData,
+          file_url: cloudinaryUrl,
         };
       }
 
@@ -507,7 +510,7 @@ const StoryToShare = () => {
                         </svg>
                         <input
                           type="file"
-                          accept=".pdf,.doc,.docx"
+                          accept=".pdf,.doc,.docx,.txt"
                           onChange={handleFileChange}
                           className="hidden"
                         />
