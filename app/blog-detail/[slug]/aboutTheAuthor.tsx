@@ -149,7 +149,7 @@ const AboutTheAuthor: React.FC<Props> = ({ post }) => {
                         );
                         router.push("/author-details");
                       }}
-                      className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%]"
+                      className="flex items-center gap-[10px] text-white font-denton font-bold text-[18px] leading-[100%] hover:text-[#E72125] cursor-pointer"
                     >
                       {
                         post?.author?.node?.userProfileImage
@@ -180,6 +180,7 @@ const AboutTheAuthor: React.FC<Props> = ({ post }) => {
                               <img
                                 src={term?.socialSvg?.node?.sourceUrl}
                                 alt={term?.socialSvg?.node?.altText}
+                                className="w-[20px] h-[20px] hover:scale-105 transition-all duration-300 ease-in-out"
                               />
                             </a>
                           </li>
@@ -198,7 +199,7 @@ const AboutTheAuthor: React.FC<Props> = ({ post }) => {
                 {post?.blogDetail?.subscribeDescription}
               </p>
               {isSubmitted ? (
-                <h5 className="font-denton font-semibold bg-transparent text-white 2xl:text-[24px] xl:text-[24px] lg:text-[18px] text-[15px] leading-[100%] text-left">
+                <h5 className="font-denton font-semibold bg-transparent text-white 2xl:text-[24px] xl:text-[24px] lg:text-[18px] text-[15px] leading-[100%] text-left mt-[30px]">
                   🎉 You’re in! Thanks for subscribing.
                 </h5>
               ) : (
