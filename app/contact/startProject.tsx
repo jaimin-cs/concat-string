@@ -547,7 +547,7 @@ const MultiStepForm = () => {
               // onChange={(e) => handleInputChange(field.name, e.target.value)}
               className="w-full h-[60px] px-[20px] py-[15px] rounded-[12px] border border-[#FFFFFF70] bg-transparent text-white font-monte font-medium text-[16px] leading-[24px] placeholder:text-white/70 focus:bg-[#D9D9D94D] !focus:border-0 focus:outline-none focus:ring-0 transition-all duration-300"
             />
-            {error && <p className="mt-1 text-red-400 text-sm">{error}</p>}
+            {error && <p className="font-denton mt-1 text-red-400 text-sm">{error}</p>}
           </div>
         );
       case "textarea":
@@ -563,7 +563,7 @@ const MultiStepForm = () => {
               onChange={(e) => handleInputChange(field.name, e.target.value)}
               className="w-full min-h-[120px] px-[20px] py-[15px] rounded-[12px] border border-[#FFFFFF70] bg-transparent text-white font-monte font-medium text-[16px] leading-[24px] placeholder:text-white/70 focus:bg-[#D9D9D94D] !focus:border-0 focus:outline-none focus:ring-0 transition-all duration-300 resize-none"
             />
-            {error && <p className="mt-1 text-red-400 text-sm">{error}</p>}
+            {error && <p className="font-denton mt-1 text-red-400 text-sm">{error}</p>}
           </div>
         );
       case "select":
@@ -605,11 +605,10 @@ const MultiStepForm = () => {
             className="p-[1px] rounded-full bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)] 2xl:w-[260px] xl:w-[260px] lg:w-[260px] md:w-full sm:w-full w-full cursor-pointer"
           >
             <div
-              className={`flex items-center justify-center rounded-full p-[20px] 2xl:w-[258px] xl:w-[258px] lg:w-[258px] md:w-full sm:w-full w-full cursor-pointer transition-all duration-300 ${
-                formData[step.id] === option
-                  ? "bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)]"
-                  : "bg-[#2B2B2B] hover:bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)]"
-              }`}
+              className={`flex items-center justify-center rounded-full p-[20px] 2xl:w-[258px] xl:w-[258px] lg:w-[258px] md:w-full sm:w-full w-full cursor-pointer transition-all duration-300 ${formData[step.id] === option
+                ? "bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)]"
+                : "bg-[#2B2B2B] hover:bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)]"
+                }`}
               onClick={() => handleInputChange(step.id, option)}
             >
               <input
@@ -667,11 +666,10 @@ const MultiStepForm = () => {
               className="p-[1px] rounded-full bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)] 2xl:w-[260px] xl:w-[260px] lg:w-[260px] md:w-full sm:w-full w-full cursor-pointer"
             >
               <div
-                className={`flex items-center justify-center rounded-full p-[20px] 2xl:w-[258px] xl:w-[258px] lg:w-[258px] md:w-full sm:w-full w-full cursor-pointer transition-all duration-300 ${
-                  selectedValues.includes(option)
-                    ? "bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)] text-white"
-                    : "bg-[#2B2B2B] hover:bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)] text-white"
-                }`}
+                className={`flex items-center justify-center rounded-full p-[20px] 2xl:w-[258px] xl:w-[258px] lg:w-[258px] md:w-full sm:w-full w-full cursor-pointer transition-all duration-300 ${selectedValues.includes(option)
+                  ? "bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)] text-white"
+                  : "bg-[#2B2B2B] hover:bg-[linear-gradient(180deg,_#E72125_0%,_#8E1D1D_100%)] text-white"
+                  }`}
                 onClick={() => handleOptionToggle(option)}
               >
                 <input
@@ -844,11 +842,10 @@ const MultiStepForm = () => {
               {currentStepData.fields.map((field, index) => (
                 <div
                   key={index}
-                  className={`${
-                    field.name === "message" 
-                      ? "w-full" 
-                      : "2xl:w-[calc(50%-25px)] xl:w-[calc(50%-25px)] lg:w-[calc(50%-25px)] md:w-[calc(50%-25px)] sm:w-full w-full"
-                  }`}
+                  className={`${field.name === "message"
+                    ? "w-full"
+                    : "2xl:w-[calc(50%-25px)] xl:w-[calc(50%-25px)] lg:w-[calc(50%-25px)] md:w-[calc(50%-25px)] sm:w-full w-full"
+                    }`}
                 >
                   {renderField(field)}
                 </div>
@@ -890,11 +887,10 @@ const MultiStepForm = () => {
                 type="button"
                 onClick={handleSubmit}
                 disabled={!canGoNext() || isSubmitting}
-                className={`2xl:mb-[0px] xl:mb-[0px] lg:mb-[0px] md:mb-[10px] sm:mb-[15px] mb-[15px] mt-[30px] px-[40px] py-[16px] rounded-full bg-gradient-to-b from-[#E72125] to-[#8E1D1D] text-white font-denton font-bold text-[18px] leading-[120%] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#E72125] focus:ring-opacity-50 ${
-                  !canGoNext()
-                    ? "opacity-50 cursor-not-allowed hover:scale-100"
-                    : ""
-                }`}
+                className={`2xl:mb-[0px] xl:mb-[0px] lg:mb-[0px] md:mb-[10px] sm:mb-[15px] mb-[15px] mt-[30px] px-[40px] py-[16px] rounded-full bg-gradient-to-b from-[#E72125] to-[#8E1D1D] text-white font-denton font-bold text-[18px] leading-[120%] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#E72125] focus:ring-opacity-50 ${!canGoNext()
+                  ? "opacity-50 cursor-not-allowed hover:scale-100"
+                  : ""
+                  }`}
               >
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>
@@ -903,11 +899,10 @@ const MultiStepForm = () => {
                 type="button"
                 onClick={handleNext}
                 disabled={!canGoNext()}
-                className={`2xl:mb-[0px] xl:mb-[0px] lg:mb-[0px] md:mb-[10px] sm:mb-[15px] mb-[15px] mt-[30px] px-[40px] py-[16px] rounded-full bg-gradient-to-b from-[#E72125] to-[#8E1D1D] text-white font-denton font-bold text-[18px] leading-[120%] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#E72125] focus:ring-opacity-50 ${
-                  !canGoNext()
-                    ? "opacity-50 cursor-not-allowed hover:scale-100"
-                    : ""
-                }`}
+                className={`2xl:mb-[0px] xl:mb-[0px] lg:mb-[0px] md:mb-[10px] sm:mb-[15px] mb-[15px] mt-[30px] px-[40px] py-[16px] rounded-full bg-gradient-to-b from-[#E72125] to-[#8E1D1D] text-white font-denton font-bold text-[18px] leading-[120%] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#E72125] focus:ring-opacity-50 ${!canGoNext()
+                  ? "opacity-50 cursor-not-allowed hover:scale-100"
+                  : ""
+                  }`}
               >
                 Next
               </button>
@@ -978,9 +973,8 @@ const MultiStepForm = () => {
                 <button
                   onClick={handleBack}
                   disabled={!canGoBack()}
-                  className={`relative z-[10] 2xl:w-[64px] xl:w-[64px] lg:w-[64px] md:w-[64px] sm:w-[50px] w-[50px] 2xl:h-[64px] xl:h-[64px] lg:h-[64px] md:h-[64px] sm:h-[50px] h-[50px] rounded-full border border-white/50 flex items-center justify-center text-white bg-[#000000] ${
-                    !canGoBack() ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                  className={`relative z-[10] 2xl:w-[64px] xl:w-[64px] lg:w-[64px] md:w-[64px] sm:w-[50px] w-[50px] 2xl:h-[64px] xl:h-[64px] lg:h-[64px] md:h-[64px] sm:h-[50px] h-[50px] rounded-full border border-white/50 flex items-center justify-center text-white bg-[#000000] ${!canGoBack() ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1000,9 +994,8 @@ const MultiStepForm = () => {
                 <button
                   onClick={handleNext}
                   disabled={!canGoNext()}
-                  className={`2xl:w-[64px] xl:w-[64px] lg:w-[64px] md:w-[64px] sm:w-[50px] w-[50px] 2xl:h-[64px] xl:h-[64px] lg:h-[64px] md:h-[64px] sm:h-[50px] h-[50px] rounded-full border border-white/50 flex items-center justify-center text-white bg-[#000000] ${
-                    !canGoNext() ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
+                  className={`2xl:w-[64px] xl:w-[64px] lg:w-[64px] md:w-[64px] sm:w-[50px] w-[50px] 2xl:h-[64px] xl:h-[64px] lg:h-[64px] md:h-[64px] sm:h-[50px] h-[50px] rounded-full border border-white/50 flex items-center justify-center text-white bg-[#000000] ${!canGoNext() ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

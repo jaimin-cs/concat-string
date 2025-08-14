@@ -97,9 +97,9 @@ const Footer = () => {
       setIsTouched(false);
 
       // Hide success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
+      // setTimeout(() => {
+      //   setIsSubmitted(false);
+      // }, 5000);
     } catch (error: any) {
       console.error("Newsletter subscription error:", error);
       setEmailError("Something went wrong. Please try again.");
@@ -114,68 +114,67 @@ const Footer = () => {
         <div className="mx-auto px-[20px] w-full rounded-[20px] pt-[100px] bg-[radial-gradient(62.87%_106.71%_at_50%_15.94%,_#E72125_0%,_rgba(231,_33,_37,_0)_100%)]">
           <div className="container max-w-[1432px] mx-auto w-full 2xl:pb-[80px] xl:pb-[60px] lg:pb-[50px] md:pb-[40px] sm:pb-[30px] pb-[30px]">
             <div className="flex flex-col items-center justify-center 2xl:gap-[30px] xl:gap-[30px] lg:gap-[30px] md:gap-[25px] sm:gap-[25px] gap-[20px]">
-              <h3 className="font-denton font-semibold text-white 2xl:text-[46px] xl:text-[46px] lg:text-[40px] md:text-[40px] sm:text-[30px] text-[25px] leading-[100%] text-center">
-                {footer?.newsletterTitle}
-              </h3>
-              <form
-                onSubmit={handleNewsletterSubmit}
-                className="w-full flex flex-col justify-center items-center gap-[20px] max-w-[823px]"
-              >
-                <div className="subscribe 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full">
-                  <div className="input flex items-center rounded-full py-[10px] px-[10px] h-full 2xl:w-[823px] xl:w-[823px] lg:w-[700px] leading-[34px] 2xl:px-[10px] xl:px-[10px] lg:px-[10px] md:px-[10px] sm:px-0 px-0 md:w-full sm:w-full w-full">
-                    {" "}
-                    <input
-                      type="text"
-                      placeholder="Enter your email address"
-                      value={email}
-                      onChange={handleEmailChange}
-                      onBlur={handleEmailBlur}
-                      className="flex-grow bg-transparent text-white font-lato font-semibold text-[16px] lg:text-[18px] leading-[36px] px-4 rounded-full focus:outline-none placeholder:text-white"
-                    />
-                    <button
-                      className="group 2xl:flex xl:flex lg:flex md:flex sm:hidden hidden"
-                      type="submit"
-                      disabled={isSubmitting}
+              {
+                isSubmitted ?
+                  <h4 className="font-denton font-semibold bg-transparent text-white 2xl:text-[46px] xl:text-[46px] lg:text-[40px] md:text-[40px] sm:text-[30px] text-[25px] leading-[100%] text-center">
+                    🎉 You’re in! Thanks for subscribing.
+                  </h4>
+                  :
+                  <>
+                    <h3 className="font-denton font-semibold text-white 2xl:text-[46px] xl:text-[46px] lg:text-[40px] md:text-[40px] sm:text-[30px] text-[25px] leading-[100%] text-center">
+                      {footer?.newsletterTitle}
+                    </h3>
+                    <form
+                      onSubmit={handleNewsletterSubmit}
+                      className="w-full flex flex-col justify-center items-center gap-[10px] max-w-[823px]"
                     >
-                      <div className="btn-primary-outline">
-                        <span className="btn-primary">
-                          {isSubmitting ? "Submitting..." : "Submit"}
-                        </span>
+                      <div className="subscribe 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full">
+
+                        <div className="input flex items-center rounded-full py-[10px] px-[10px] h-full 2xl:w-[823px] xl:w-[823px] lg:w-[700px] leading-[34px] 2xl:px-[10px] xl:px-[10px] lg:px-[10px] md:px-[10px] sm:px-0 px-0 md:w-full sm:w-full w-full">
+                          {" "}
+                          <input
+                            type="text"
+                            placeholder="Enter your email address"
+                            value={email}
+                            onChange={handleEmailChange}
+                            onBlur={handleEmailBlur}
+                            className="flex-grow bg-transparent text-white font-lato font-semibold text-[16px] lg:text-[18px] leading-[36px] px-4 rounded-full focus:outline-none placeholder:text-white"
+                          />
+                          <button
+                            className="group 2xl:flex xl:flex lg:flex md:flex sm:hidden hidden"
+                            type="submit"
+                            disabled={isSubmitting}
+                          >
+                            <div className="btn-primary-outline">
+                              <span className="btn-primary">
+                                {isSubmitting ? "Submitting..." : "Submit"}
+                              </span>
+                            </div>
+                          </button>
+                        </div>
+
                       </div>
-                    </button>
-                  </div>
-                </div>
-                {emailError && isTouched && (
-                  <span className="flex items-start justify-start w-full md:hidden">
-                    <p className="text-[#ff0005] text-sm font-medium ms-[40px]">
-                      {emailError}
-                    </p>
-                  </span>
-                )}
-                <button
-                  className="group 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full 2xl:hidden xl:hidden lg:hidden md:hidden sm:flex flex"
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  <div className="btn-primary-outline 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full bg-gradient-to-b from-white to-[#54A3DA]">
-                    <span className="btn-primary">
-                      {isSubmitting ? "Submitting..." : "Submit"}
-                    </span>
-                  </div>
-                </button>
-                {emailError && isTouched && (
-                  <span className="md:flex items-start justify-start w-full hidden">
-                    <p className="text-[#ff0005] text-sm font-medium ms-[40px]">
-                      {emailError}
-                    </p>
-                  </span>
-                )}
-              </form>
-              {/* {isSubmitted && (
-                <div className="text-green-500 text-center mt-4">
-                  Subscription successful!
-                </div>
-              )} */}
+                      {emailError && isTouched && (
+                        <span className="md:flex items-start justify-start w-full hidden">
+                          <p className="font-denton text-[#e5e7eb] text-sm font-medium ms-[40px]">
+                            {emailError}
+                          </p>
+                        </span>
+                      )}
+                      <button
+                        className="group 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full 2xl:hidden xl:hidden lg:hidden md:hidden sm:flex flex"
+                        type="submit"
+                        disabled={isSubmitting}
+                      >
+                        <div className="btn-primary-outline 2xl:w-[823px] xl:w-[823px] lg:w-[700px] md:w-full sm:w-full w-full bg-gradient-to-b from-white to-[#54A3DA]">
+                          <span className="btn-primary">
+                            {isSubmitting ? "Submitting..." : "Submit"}
+                          </span>
+                        </div>
+                      </button>
+                    </form>
+                  </>
+              }
             </div>
             <ul className="flex flex-wrap justify-center items-center 2xl:gap-[46px] xl:gap-[46px] lg:gap-[40px] md:gap-[40px] sm:gap-[30px] gap-[20px] 2xl:pt-[80px] xl:pt-[60px] lg:pt-[50px] md:pt-[40px] sm:pt-[30px] pt-[30px] 2xl:pb-[60px] xl:pb-[60px] lg:pb-[50px] md:pb-[40px] sm:pb-[30px] pb-[30px] border-b border-[#D9D9D9]">
               {footer?.footerPaths?.map(
